@@ -1,64 +1,467 @@
-# Metrics Explorer — Researcher Tool
+# MetricsExplorer
 
-> **Portfolio / Demo Version** — esta rama permite explorar el proyecto sin credenciales ni una instalación compleja.
+> **Portfolio / Demo version**  
+> A researcher analytics platform built around a manually developed Python ETL pipeline that integrates bibliometric, open-science, repository, and alternative-impact data from multiple public sources.
 
-## Descripción
+MetricsExplorer collects, normalizes, integrates, and presents researcher-level information from sources such as **OpenAlex, Crossref Event Data, OpenAIRE, GitHub, and Zenodo**.
 
-Aplicación web que reúne en un perfil indicadores sobre la actividad de un investigador: publicaciones, citas, índice h, acceso abierto, instituciones, proyectos de GitHub, registros de Zenodo y menciones externas.
+The analytical core and original ETL workflow were developed manually in Python. AI was later used selectively to **optimize parts of the Python implementation** and to support the transformation of the original script into a deployable web application.
 
-La versión completa busca investigadores, consulta distintas APIs, ejecuta un proceso ETL y presenta los resultados mediante paneles y gráficos.
+The goal of this project is to demonstrate skills in **Python, ETL design, API integration, relational data management, research analytics, backend development, deployment, and AI-assisted software engineering**.
 
-La aplicación estuvo disponible públicamente durante siete meses en [metricsexplorer.metricsschool.com/es/](https://metricsexplorer.metricsschool.com/es/) y ahora se encuentra disponible en GitHub.
+## Demo preview
 
-## Cómo probarlo
+![MetricsExplorer demo](images/metrics-explorer-demo.gif)
 
-### 1. Ejecutable para Windows — recomendado
+## Try the demo
 
-Esta es la forma más sencilla de probar el flujo completo: ejecuta el ETL desde el ordenador sin instalar Python, PostgreSQL, Redis ni Docker.
+### Online demo
 
-1. Abre la [última versión publicada](https://github.com/MetricsSchool/researcher_tool/releases/latest).
-2. En **Assets**, descarga `MetricsExplorer-Demo-Windows.zip`.
-3. Haz clic derecho en el ZIP y selecciona **Extraer todo**.
-4. Abre la carpeta extraída y ejecuta `MetricsExplorer-Demo.exe`.
-5. Mantén abierta la ventana negra. La aplicación abrirá automáticamente el navegador.
-6. Introduce un nombre u ORCID —o utiliza uno de los ejemplos— y pulsa **Analizar**.
+The fastest way to get a quick look at MetricsExplorer is through the online demo:
 
-La búsqueda en vivo necesita conexión a Internet. Las APIs pueden aplicar límites o no disponer de todos los datos. GitHub y Zenodo funcionan sin tokens, aunque con límites más bajos.
+[**Open the online demo**](https://researcher-tool-demo.onrender.com/es/)
 
-### 2. Demo online — visita rápida
+Because of the resource limitations of the free Render environment, the online version **does not execute the full live ETL workflow**. Instead, it uses preloaded researcher snapshots so the interface and final outputs can be explored immediately and reliably.
 
-[**Abrir la demo online**](https://researcher-tool-demo.onrender.com/es/)
+You can try two example workflows:
 
-Elige **Usar ejemplo con ORCID** o **Usar ejemplo con Nombre + GitHub**. Después pulsa **Analizar**. Render utiliza datos precargados y no consulta servicios externos.
+- **ORCID example**
+- **Name + GitHub example**
 
-## Qué puedes probar
+After loading one of the examples, click **Analyze** to view the resulting researcher profile.
 
-- Cargar ejemplos con un clic o buscar investigadores por nombre u ORCID desde el ejecutable.
-- Seleccionar candidatos cuando existen coincidencias.
-- Seguir el progreso del procesamiento.
-- Consultar publicaciones, citas e indicadores.
-- Ver la evolución temporal y los trabajos destacados.
-- Explorar repositorios y datasets.
+### Windows executable (**recommended**)
 
-## Tecnología y funcionamiento
+The Windows executable is the recommended way to evaluate the project because it runs the **complete workflow locally**, including the real ETL pipeline and live queries to public external sources.
 
-- **Python y Django:** aplicación web y lógica principal.
-- **PostgreSQL:** almacenamiento de la versión completa.
-- **Celery y Redis:** procesamiento asíncrono en producción.
-- **OpenAlex, GitHub, Zenodo, OpenAIRE y DOI:** fuentes externas.
-- **Plotly, Bootstrap y Tailwind CSS:** gráficos e interfaz.
-- **SQLite y Waitress:** ejecución local portable.
-- **Docker, Gunicorn, Nginx y Caddy:** empaquetado y despliegue.
-- **PyInstaller:** construcción del ejecutable de Windows.
+1. Open the [latest available release](https://github.com/DiegoJSN/metrics_explorer/releases/latest).
+2. Under **Assets**, download `MetricsExplorer-Demo-Windows.zip`.
+3. Extract the ZIP file.
+4. Run `MetricsExplorer-Demo.exe`.
+5. Keep the terminal window open while the application is running.
 
-## Diferencias de la rama demo
+No Python, PostgreSQL, Redis, or Docker installation is required.
 
-La demo online utiliza dos instantáneas precargadas —ORCID y Nombre + GitHub— para garantizar una experiencia inmediata y fiable dentro de las limitaciones del servidor gratuito de Render. El ejecutable activa el procesamiento local y puede recorrer el flujo real sin utilizar credenciales personales. Tanto Render como el ejecutable presentan la interfaz únicamente en español. La rama `main` conserva la infraestructura completa con PostgreSQL, Celery y Redis.
+For Python and Docker options, see [Running the demo](#running-the-demo).
 
-## Limitaciones y privacidad
+### What to look for
 
-Los indicadores precargados representan una instantánea demostrativa y pueden no coincidir con los valores actuales de las fuentes originales. Los resultados en vivo dependen de la información pública disponible en servicios externos y no deben utilizarse para evaluar personas. No se incluyen tokens ni contraseñas en el repositorio.
+For a quick interface preview, use the online demo with one of the preloaded examples.
 
----
+To evaluate the **complete workflow**, use the Windows executable. It runs the ETL locally, queries public external sources, processes the returned data, and generates the final researcher profile.
 
-Esta rama está preparada específicamente como **versión demostrativa para portfolio profesional**.
+Pay particular attention to:
+
+- Researcher identification
+- Bibliometric indicators
+- Open Access information
+- Most-cited publications
+- Publication trends over time
+- Wikipedia mentions
+- GitHub and Zenodo outputs
+- PDF export
+
+## Project purpose
+
+MetricsExplorer was conceived as a tool for exploring researcher activity through a broader set of indicators than traditional citation metrics alone.
+
+The goal was to integrate information that is normally distributed across different platforms and APIs into a single researcher-level profile.
+
+The project combines:
+
+- Traditional bibliometric indicators
+- Open Access information
+- Repository and software outputs
+- Research datasets
+- External mentions
+- Researcher identifiers
+- Institutional information
+
+The original project was deployed publicly for several months through Metrics School and was later prepared as a portfolio-oriented GitHub version.
+
+The current repository includes a simplified demo mode that makes it possible to explore the application without production credentials or private infrastructure.
+
+## How this project was built
+
+MetricsExplorer started as a **manually developed Python data-processing script**.
+
+The original analytical core, API integrations, data-cleaning logic, researcher-matching workflow, metric calculations, and ETL process were developed manually.
+
+AI was introduced later in the development process for two specific purposes:
+
+1. **Improving the efficiency of parts of the existing Python implementation**
+2. **Supporting the transformation of the original script into a deployable web application**
+
+This distinction is important: the project's analytical logic and original ETL pipeline were not generated by AI.
+
+AI acted mainly as an engineering assistant during optimization, web integration, infrastructure configuration, packaging, testing, and deployment.
+
+### My contribution
+
+- Conceptualization of the researcher analytics workflow
+- Manual development of the original Python ETL script
+- Design and implementation of the data-processing pipeline
+- Integration of multiple public APIs and data sources
+- Researcher identification and matching logic
+- Data cleaning, normalization, deduplication, and consolidation
+- Definition and calculation of bibliometric and alternative indicators
+- SQL-based data management
+- Relational data modeling
+- Validation of intermediate and final outputs
+- Optimization of the original Python implementation
+- Definition of expected web-application behavior
+- Testing and validation of the deployed application
+- Preparation of the portfolio/demo version
+
+### AI contribution
+
+AI was used selectively to support:
+
+- Review and optimization of parts of the manually written Python code
+- Identification of redundant or inefficient processing
+- Adaptation of the standalone Python workflow into a Django application
+- Web deployment configuration
+- Docker configuration
+- Celery and Redis integration
+- Gunicorn and production-environment configuration
+- Windows executable packaging
+- GitHub Actions workflows
+- Testing and deployment troubleshooting
+
+## Main features
+
+- Search researchers by **ORCID** or **name**
+- Optional GitHub username integration
+- Candidate selection when multiple researcher matches are found
+- Integration of multiple public research-data sources
+- Automated ETL workflow
+- Researcher profile generation
+- Publication and citation aggregation
+- h-index calculation
+- i10-index calculation
+- Open Access publication counts
+- Average citations per publication
+- Top cited publications
+- Publications by year and publication type
+- Wikipedia mention tracking
+- GitHub repository integration
+- Zenodo record integration
+- Institutional information
+- Processing-progress tracking
+- PDF export of researcher profiles
+- Local demo execution
+- Online portfolio demo
+- Windows executable distribution
+
+## System logic
+
+MetricsExplorer was designed as a multi-source data-integration pipeline:
+
+```text
+Researcher input
+(Name / ORCID / GitHub)
+        │
+        ▼
+Researcher identification
+        │
+        ├── ORCID-based lookup
+        └── Name-based candidate selection
+        │
+        ▼
+External data sources
+        │
+        ├── OpenAlex
+        ├── Crossref Event Data
+        ├── OpenAIRE
+        ├── GitHub
+        └── Zenodo
+        │
+        ▼
+ETL pipeline
+        │
+        ├── Extract
+        ├── Normalize
+        ├── Match
+        ├── Deduplicate
+        ├── Integrate
+        └── Aggregate
+        │
+        ▼
+Relational storage
+        │
+        ├── Researcher summary
+        ├── Publications
+        ├── Repository / dataset records
+        └── Processing jobs
+        │
+        ▼
+Metrics and derived indicators
+        │
+        ├── Publications
+        ├── Citations
+        ├── h-index
+        ├── i10-index
+        ├── Open Access
+        ├── Citations per publication
+        └── External mentions
+        │
+        ▼
+Researcher dashboard
+        │
+        ├── Summary indicators
+        ├── Publication tables
+        ├── Temporal visualizations
+        ├── Repository outputs
+        └── PDF export
+```
+
+The main challenge was not simply retrieving information from external services, but making heterogeneous records compatible enough to be combined into a coherent researcher-level profile.
+
+This required defining matching rules, normalization logic, relationships between data entities, and a reproducible ETL workflow before presenting the final results in the web interface.
+
+## Technology stack
+
+### Data processing and backend
+
+- **Python**
+- **Django**
+- **SQL**
+- **PostgreSQL**
+- **SQLite**
+
+### Data sources and APIs
+
+- **OpenAlex**
+- **Crossref Event Data**
+- **OpenAIRE**
+- **GitHub**
+- **Zenodo**
+
+### Asynchronous processing
+
+- **Celery**
+- **Redis**
+
+### Frontend and visualization
+
+- **Django Templates**
+- **Tailwind CSS**
+- **Bootstrap**
+- **Plotly**
+
+### Deployment and packaging
+
+- **Docker**
+- **Gunicorn**
+- **WhiteNoise**
+- **Render**
+- **GitHub Actions**
+- **PyInstaller**
+- Windows executable packaging
+
+## Engineering highlights
+
+The project required designing and validating several non-trivial data and software processes:
+
+- Multi-source API integration
+- Researcher identity matching
+- ORCID-based and name-based workflows
+- Candidate disambiguation
+- Data normalization across heterogeneous sources
+- Duplicate handling
+- Relational storage of researcher, publication, repository, and job data
+- ETL job isolation
+- Processing-progress tracking
+- Data-retention and cleanup logic
+- PostgreSQL / SQLite compatibility
+- Background processing with Celery
+- Redis-based task infrastructure
+- Portable local demo architecture
+- Dockerized execution
+- Automated tests
+- GitHub Actions workflows
+- Automated Windows executable builds
+- Health-check endpoint for deployment environments
+- PDF-ready reporting interface
+
+The analytical core was developed manually and later refined through selective AI-assisted optimization and deployment work.
+
+## Demo version vs. production architecture
+
+### Demo mode
+
+The portfolio/demo configuration is designed to make the project easy to evaluate through two complementary formats.
+
+The **online demo** uses:
+
+- Preloaded example researcher profiles
+- **SQLite** instead of production PostgreSQL
+- No private API credentials
+- No Redis requirement for the online demo workflow
+- Example-driven interaction
+
+Because the free Render environment has limited resources, the online version is intentionally restricted to preloaded examples. It is meant to demonstrate the interface, researcher profiles, metrics, visualizations, and reporting without running the full ETL pipeline live.
+
+### Local executable (**recommended**)
+
+The Windows executable provides the **complete functional workflow** and is the recommended option for evaluating how MetricsExplorer actually works.
+
+It can:
+
+- Accept researcher names or ORCID identifiers
+- Run the ETL locally
+- Query public external data sources
+- Generate researcher profiles using live data
+- Store results locally
+
+### Production architecture
+
+The complete deployment architecture was designed around:
+
+- **Django**
+- **PostgreSQL**
+- **Celery**
+- **Redis**
+- Background ETL processing
+- Persistent data storage
+- Production environment variables
+- Gunicorn-based serving
+- Containerized deployment
+- Health checks and monitoring-oriented configuration
+
+## What you can test
+
+The demo allows you to:
+
+- Load a researcher through an ORCID example
+- Load a researcher through a name + GitHub example
+- Explore the researcher identification workflow
+- View bibliometric indicators
+- Compare publication and citation information
+- Inspect Open Access indicators
+- Explore the most-cited publications
+- View publication trends through Plotly visualizations
+- Inspect Wikipedia mentions
+- Explore GitHub and Zenodo outputs
+- Export a researcher profile to PDF
+- Run the full ETL locally through the Windows executable
+- Test the application through Docker or Python
+
+## Running the demo
+
+Choose one of the following options.
+
+### Option 1: Online demo
+
+Open:
+
+[https://researcher-tool-demo.onrender.com/es/](https://researcher-tool-demo.onrender.com/es/)
+
+The online demo uses **preloaded researcher snapshots** because the free Render environment does not provide enough resources to run the complete ETL workflow reliably for live searches.
+
+Choose one of the example buttons and then click **Analyze**.
+
+This option is intended for a fast preview of the interface and outputs.
+
+### Option 2: Windows executable (**recommended**)
+
+This is the recommended way to test MetricsExplorer because it runs the **complete workflow**, including the live ETL process, without requiring the full development stack.
+
+1. Open the [latest available release](https://github.com/DiegoJSN/metrics_explorer/releases/latest).
+2. Download `MetricsExplorer-Demo-Windows.zip`.
+3. Extract the ZIP file.
+4. Run `MetricsExplorer-Demo.exe`.
+5. Keep the terminal window open while using the application.
+
+The browser should open automatically.
+
+Unlike the online demo, the executable runs the **full researcher-analysis workflow**: it accepts a name or ORCID, queries public external sources, executes the ETL pipeline locally, processes and integrates the returned data, and generates the final researcher profile.
+
+Internet access is required for live external-source queries.
+
+GitHub and Zenodo can be queried without personal tokens, although lower API limits may apply.
+
+### Option 3: Run with Python
+
+Requires:
+
+- [Git](https://git-scm.com/downloads)
+- [Python 3.11+](https://www.python.org/downloads/)
+
+#### Windows PowerShell
+
+```powershell
+git clone https://github.com/DiegoJSN/metrics_explorer.git
+cd metrics_explorer
+powershell -ExecutionPolicy Bypass -File .\run_demo.ps1
+```
+
+#### macOS or Linux
+
+```bash
+git clone https://github.com/DiegoJSN/metrics_explorer.git
+cd metrics_explorer
+sh ./run_demo.sh
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000
+```
+
+### Option 4: Run with Docker
+
+Requires [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+
+```bash
+git clone https://github.com/DiegoJSN/metrics_explorer.git
+cd metrics_explorer
+docker compose up --build
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000
+```
+
+To stop the application:
+
+```bash
+docker compose down
+```
+
+## Limitations of the demo
+
+The demo is intended for portfolio and evaluation purposes.
+
+- The online version uses preloaded researcher snapshots.
+- Preloaded indicators represent a static demonstration and may differ from current values in the original sources.
+- Live results depend on data available through external public services.
+- External APIs may apply rate limits or temporarily return incomplete information.
+- Researcher matching by name may require candidate disambiguation.
+- GitHub and Zenodo requests may be subject to lower limits when no API token is configured.
+- SQLite is used for portability in demo mode rather than as the production database.
+- The tool should not be used as a standalone system for evaluating researchers or making personnel decisions.
+
+## Contributors
+
+MetricsExplorer was conceived and developed collaboratively by:
+
+- **Sofía Calle**
+- **Ismael Lare**
+- **Diego Soler**
+
+This repository is presented as part of my professional portfolio and focuses on the technical areas in which I contributed directly, especially the **Python ETL workflow, API integration, data processing, SQL/data management, optimization, and validation of the application**.
+
+## Disclaimer
+
+MetricsExplorer is presented as a portfolio example of **research data engineering, researcher analytics, and web application development**.
+
+The original Python data-processing and analytical workflow was developed manually. AI was later used selectively to improve code efficiency and support web deployment, infrastructure configuration, packaging, testing, and troubleshooting.
+
+The indicators produced by the application depend on public external data sources and should be interpreted with appropriate methodological caution.
+
+The tool is intended for exploration and demonstration purposes and should not be used as the sole basis for evaluating researchers, institutions, or research performance.
+
