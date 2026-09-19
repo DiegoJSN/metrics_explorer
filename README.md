@@ -3,7 +3,7 @@
 > **Portfolio / Demo version**  
 > A researcher analytics platform built around a manually developed Python ETL pipeline that integrates bibliometric, open-science, repository, and alternative-impact data from multiple public sources.
 
-La aplicación estuvo disponible públicamente durante siete meses en [metricsexplorer.metricsschool.com/es/](https://metricsexplorer.metricsschool.com/es/) y ahora se encuentra disponible en GitHub.
+The application was publicly available for seven months at [metricsexplorer.metricsschool.com/es/](https://metricsexplorer.metricsschool.com/es/) and is now available on GitHub.
 
 MetricsExplorer collects, normalizes, integrates, and presents researcher-level information from sources such as **OpenAlex, Crossref Event Data, OpenAIRE, GitHub, and Zenodo**.
 
