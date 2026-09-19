@@ -3,13 +3,13 @@
 > **Portfolio / Demo version**  
 > A researcher analytics platform built around a manually developed Python ETL pipeline that integrates bibliometric, open-science, repository, and alternative-impact data from multiple public sources.
 
-The application was publicly available for seven months at [metricsexplorer.metricsschool.com/es/](https://metricsexplorer.metricsschool.com/es/) and is now available on GitHub.
-
 MetricsExplorer collects, normalizes, integrates, and presents researcher-level information from sources such as **OpenAlex, Crossref Event Data, OpenAIRE, GitHub, and Zenodo**.
 
 The analytical core and original ETL workflow were developed manually in Python. AI was later used selectively to **optimize parts of the Python implementation** and to support the transformation of the original script into a deployable web application.
 
 The goal of this project is to demonstrate skills in **Python, ETL design, API integration, relational data management, research analytics, backend development, deployment, and AI-assisted software engineering**.
+
+MetricsExplorer was deployed as a public web application from **December 2025 to August 2026** at [metricsexplorer.metricsschool.com/es/](https://metricsexplorer.metricsschool.com/es/).
 
 ## Demo preview
 
