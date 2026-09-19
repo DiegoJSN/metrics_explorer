@@ -1,0 +1,541 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-24 20:37+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\profiles\tasks.py:45
+#, python-format
+msgid "Error interno al ejecutar el proceso: %(err)s"
+msgstr "Internal error while executing the process: %(err)s"
+
+#: .\profiles\templates\profiles\candidates.html:17
+#: .\profiles\templates\profiles\candidates.html:7
+msgid "Selecciona persona"
+msgstr "Select person"
+
+#: .\profiles\templates\profiles\candidates.html:17
+#, python-format
+msgid "Resultados para \"%(researcher)s\""
+msgstr "Results for \"%(researcher)s\""
+
+#: .\profiles\templates\profiles\candidates.html:35
+#: .\profiles\templates\profiles\results.html:20
+msgid "Nombre:"
+msgstr "Name:"
+
+#: .\profiles\templates\profiles\candidates.html:37
+#: .\profiles\templates\profiles\results.html:21
+msgid "ORCID:"
+msgstr "ORCID:"
+
+#: .\profiles\templates\profiles\candidates.html:44
+#: .\profiles\templates\profiles\candidates.html:52
+#: .\profiles\templates\profiles\results.html:47
+msgid "(no disponible)"
+msgstr "(not available)"
+
+#: .\profiles\templates\profiles\candidates.html:48
+msgid "Instituciones asociadas:"
+msgstr "Associated institutions:"
+
+#: .\profiles\templates\profiles\candidates.html:23
+msgid "Selecciona el perfil que corresponda a la persona que quieres analizar."
+msgstr "Select the profile that matches the person you want to analyze."
+
+#: .\profiles\templates\profiles\candidates.html:63
+msgid "Confirmar selección"
+msgstr "Confirm selection"
+
+#: .\profiles\templates\profiles\candidates.html:67
+#, python-format
+msgid "Mostrar los siguientes %(per_page)s resultados"
+msgstr "Show the following %(per_page)s results"
+
+#: .\profiles\templates\profiles\loading.html:6
+msgid "Cargando…"
+msgstr "Loading..."
+
+#: .\profiles\templates\profiles\loading.html:57
+#: .\profiles\templates\profiles\search.html:45
+msgid "Versión Beta"
+msgstr "Beta Version"
+
+#: .\profiles\templates\profiles\loading.html:64
+msgid "Estamos preparando tus resultados…"
+msgstr "Processing the results..."
+
+#: .\profiles\templates\profiles\loading.html:67
+msgid ""
+"Estamos recopilando tus datos y generando el panel de métricas. Esto puede "
+"llevar unos minutos, no cierres esta pestaña."
+msgstr "We are compiling your data and generating a metrics dashboard. This may take a few minutes, please do not close this tab"
+
+#: .\profiles\templates\profiles\loading.html:143
+msgid "Estado"
+msgstr "Status"
+
+#: .\profiles\templates\profiles\loading.html:147
+msgid "Tiempo transcurrido"
+msgstr "Elapsed time"
+
+#: .\profiles\templates\profiles\results.html:6
+msgid "Resultados"
+msgstr "Results"
+
+#: .\profiles\templates\profiles\results.html:40
+msgid "Navegación del sitio principal"
+msgstr "Primary site navigation"
+
+#: .\profiles\templates\profiles\results.html:40
+msgid "Nosotros"
+msgstr "About us"
+
+#: .\profiles\templates\profiles\results.html:41
+msgid "Consultoría"
+msgstr "Consulting"
+
+#: .\profiles\templates\profiles\results.html:42
+msgid "Cursos"
+msgstr "Courses"
+
+#: .\profiles\templates\profiles\results.html:43
+msgid "Contacto"
+msgstr "Contact"
+
+#: .\profiles\templates\profiles\results.html:92
+msgid "Resultados para"
+msgstr "Results for"
+
+#: .\profiles\templates\profiles\results.html:80
+msgid "Exportar a PDF"
+msgstr "Export to PDF"
+
+#: .\profiles\templates\profiles\results.html:108
+msgid "Perfil general"
+msgstr "General profile"
+
+#: .\profiles\templates\profiles\loading.html:71
+msgid "Perfil seleccionado"
+msgstr "Selected profile"
+
+#: .\profiles\templates\profiles\results.html:129
+msgid "Instituciones asociadas"
+msgstr "Associated institutions"
+
+#: .\profiles\templates\profiles\results.html:156
+msgid "Publicaciones"
+msgstr "Publications"
+
+#: .\profiles\templates\profiles\results.html:162
+msgid "Citas totales"
+msgstr "Total citations"
+
+#: .\profiles\templates\profiles\results.html:181
+msgid "Publicaciones OA"
+msgstr "Open access publications"
+
+#: .\profiles\templates\profiles\results.html:194
+msgid "Citas / publicación"
+msgstr "Citations / publication"
+
+#: .\profiles\templates\profiles\results.html:217
+#: .\profiles\templates\profiles\results.html:323
+#: .\profiles\templates\profiles\results.html:410
+msgid "Tipo"
+msgstr "Type"
+
+#: .\profiles\templates\profiles\results.html:218
+#: .\profiles\templates\profiles\results.html:324
+#: .\profiles\templates\profiles\results.html:411
+msgid "Título"
+msgstr "Title"
+
+#: .\profiles\templates\profiles\results.html:219
+#: .\profiles\templates\profiles\results.html:325
+msgid "DOI"
+msgstr "DOI"
+
+#: .\profiles\templates\profiles\results.html:220
+#: .\profiles\templates\profiles\results.html:326
+#: .\profiles\templates\profiles\results.html:413
+msgid "Año"
+msgstr "Year"
+
+#: .\profiles\templates\profiles\results.html:221
+#: .\profiles\templates\profiles\results.html:327
+#: .\profiles\templates\profiles\results.html:414
+msgid "Autores"
+msgstr "Authors"
+
+#: .\profiles\templates\profiles\results.html:222
+#: .\profiles\templates\profiles\results.html:415
+msgid "Citas"
+msgstr "Citations"
+
+#: .\profiles\templates\profiles\results.html:231
+#: .\profiles\templates\profiles\results.html:337
+#: .\profiles\templates\profiles\results.html:476
+msgid "revisión"
+msgstr "review"
+
+#: .\profiles\templates\profiles\results.html:233
+#: .\profiles\templates\profiles\results.html:339
+#: .\profiles\templates\profiles\results.html:477
+msgid "preprint"
+msgstr "preprint"
+
+#: .\profiles\templates\profiles\results.html:235
+#: .\profiles\templates\profiles\results.html:341
+#: .\profiles\templates\profiles\results.html:478
+msgid "tesis"
+msgstr "dissertation"
+
+#: .\profiles\templates\profiles\results.html:237
+#: .\profiles\templates\profiles\results.html:343
+#: .\profiles\templates\profiles\results.html:479
+msgid "capítulo libro"
+msgstr "book chapter"
+
+#: .\profiles\templates\profiles\results.html:239
+#: .\profiles\templates\profiles\results.html:345
+#: .\profiles\templates\profiles\results.html:480
+msgid "libro"
+msgstr "book"
+
+#: .\profiles\templates\profiles\results.html:241
+#: .\profiles\templates\profiles\results.html:347
+#: .\profiles\templates\profiles\results.html:481
+msgid "artículo"
+msgstr "article"
+
+#: .\profiles\templates\profiles\results.html:307
+msgid "Eje X: año de publicación. Eje Y: número de publicaciones, desglosado por tipo."
+msgstr "X-axis: publication year. Y-axis: number of publications, broken down by type."
+
+#: .\profiles\templates\profiles\results.html:315
+msgid "Top 5 artículos mencionados en wikipedia"
+msgstr "Top 5 articles mentioned on Wikipedia"
+
+#: .\profiles\templates\profiles\results.html:328
+msgid "Wikipedia"
+msgstr "Wikipedia"
+
+#: .\profiles\templates\profiles\results.html:329
+msgid "Menciones"
+msgstr "Mentions"
+
+#: .\profiles\templates\profiles\results.html:403
+msgid "Repositorios"
+msgstr "Repositories"
+
+#: .\profiles\templates\profiles\results.html:412
+msgid "DOI / URL"
+msgstr "DOI / URL"
+
+#: .\profiles\templates\profiles\results.html:462
+msgid "No hay repositorios disponibles."
+msgstr "No repositories available."
+
+#: .\profiles\templates\profiles\results.html:506
+msgid "Número de publicaciones"
+msgstr "Number of publications"
+
+#: .\profiles\templates\profiles\results.html:17
+msgid "Resumen del investigador"
+msgstr "Researcher summary"
+
+#: .\profiles\templates\profiles\results.html:22
+msgid "GitHub:"
+msgstr "Github:"
+
+#: .\profiles\templates\profiles\results.html:23
+msgid "Zenodo:"
+msgstr "Zenodo:"
+
+#: .\profiles\templates\profiles\results.html:24
+msgid "h-index:"
+msgstr "h-index:"
+
+#: .\profiles\templates\profiles\results.html:25
+msgid "i10-index:"
+msgstr "i10-index:"
+
+#: .\profiles\templates\profiles\results.html:26
+msgid "N citas:"
+msgstr "N citas:"
+
+#: .\profiles\templates\profiles\results.html:27
+msgid "N publicaciones:"
+msgstr "Number of publications:"
+
+#: .\profiles\templates\profiles\results.html:28
+msgid "N OA:"
+msgstr "Number of open access:"
+
+#: .\profiles\templates\profiles\results.html:29
+msgid "Citas promedio/publicación:"
+msgstr "Average cites/publication:"
+
+#: .\profiles\templates\profiles\results.html:32
+msgid "No hay datos en author_summary."
+msgstr "There is no data in author_summary."
+
+#: .\profiles\templates\profiles\results.html:35
+msgid "Top 5 publicaciones más citadas"
+msgstr "Top 5 most cited publications"
+
+#: .\profiles\templates\profiles\results.html:40
+msgid "Tipo publicación:"
+msgstr "Publication type:"
+
+#: .\profiles\templates\profiles\results.html:41
+msgid "Titulo:"
+msgstr "Title:"
+
+#: .\profiles\templates\profiles\results.html:42
+msgid "DOI:"
+msgstr "DOI:"
+
+#: .\profiles\templates\profiles\results.html:49
+msgid "Año:"
+msgstr "Year:"
+
+#: .\profiles\templates\profiles\results.html:50
+msgid "Autores:"
+msgstr "Authors:"
+
+#: .\profiles\templates\profiles\results.html:51
+msgid "Citas:"
+msgstr "Cites:"
+
+#: .\profiles\templates\profiles\results.html:56
+msgid "No hay trabajos."
+msgstr "No works available."
+
+#: .\profiles\templates\profiles\results.html:59
+msgid "Gráfica de publicaciones por año"
+msgstr "Publications per year plot"
+
+#: .\profiles\templates\profiles\search.html:8
+msgid "Búsqueda"
+msgstr "Search"
+
+#: .\profiles\templates\profiles\search.html:55
+msgid "Ingresa tu ORCID (recomendado) o tu nombre para iniciar el análisis."
+msgstr "Enter your ORCID (recommended) or your name to start the analysis."
+
+#: .\profiles\templates\profiles\search.html:61
+msgid "Nombre"
+msgstr "Name"
+
+#: .\profiles\templates\profiles\search.html:67
+msgid "Tu nombre y apellidos"
+msgstr "Full name"
+
+#: .\profiles\templates\profiles\search.html:104
+msgid "tu-usuario"
+msgstr "your-username"
+
+#: .\profiles\templates\profiles\search.html:93
+msgid "Si usas tu ORCID, la búsqueda es directa."
+msgstr "If you use your ORCID, the search is direct."
+
+#: .\profiles\templates\profiles\search.html:112
+msgid ""
+"Si utilizas tu nombre, tendrás que buscarte entre una lista de posibles "
+"candidatos."
+msgstr ""
+"If you use your name, you will have to find yourself in a list of possible "
+"candidates."
+
+#: .\profiles\templates\profiles\search.html:100
+msgid "Usuario de GitHub (opcional)"
+msgstr "Github user (optional)"
+
+#: .\profiles\templates\profiles\search.html:116
+msgid ""
+"Si compartes software, repositorios o datasets, podremos conectar esos datos "
+"en tu panel."
+msgstr ""
+"Enrich your dashboard! Share your repositories, software, or datasets to "
+"connect all your research activity."
+
+#: .\profiles\templates\profiles\search.html:126
+msgid "Analizar"
+msgstr "Analyse"
+
+#: .\profiles\templates\profiles\search.html:129
+msgid "Se recomienda realizar solo una consulta al mismo tiempo"
+msgstr "We recommend running only one query at the same time."
+
+#: .\profiles\templates\profiles\search.html:129
+msgid "Al hacer clic en \"Analizar\", aceptas nuestra"
+msgstr "By clicking \"Analyse\", you accept our"
+
+#: .\profiles\templates\profiles\search.html:130
+msgid "Política de cookies"
+msgstr "Cookie Policy"
+
+#: .\profiles\templates\profiles\search.html:131
+msgid "y nuestra"
+msgstr "and our"
+
+#: .\profiles\templates\profiles\search.html:132
+msgid "Declaración de privacidad"
+msgstr "Privacy Statement"
+
+#: .\profiles\templates\profiles\search.html:137
+msgid "¿Qué obtendrás?"
+msgstr "What's Included"
+
+#: .\profiles\templates\profiles\search.html:138
+msgid ""
+"Un panel con indicadores tradicionales y alternativos. En el futuro, "
+"también se incluirán visualizaciones exportables y un glosario de métricas "
+"para interpretar tus resultados."
+msgstr ""
+"A dashboard displaying both traditional and alternative indicators. Future "
+"updates will include exportable visualisations and a glossary of metrics to "
+"help you interpret your results."
+
+#: .\profiles\templates\profiles\search.html:144
+msgid "Actualizado: febrero 2026"
+msgstr "Updated: February 2026"
+
+#: .\profiles\templates\profiles\search.html:146
+msgid "Más info sobre el panel →"
+msgstr "More info about the dashboard →"
+
+#: .\profiles\views.py:60
+msgid "No se encontró zz_tool_researchers_merged.py en: "
+msgstr "File zz_tool_researchers_merged.py not found in: "
+
+#: .\profiles\views.py:123 .\profiles\views.py:207
+msgid "Not found"
+msgstr "Not found"
+
+#: .\profiles\views.py:347
+msgid "Unknown"
+msgstr "Unknown"
+
+#: .\profiles\views.py:363
+msgid "Publications per year and type"
+msgstr "Publications per year and type"
+
+#: .\profiles\templates\profiles\candidates.html:150
+#, python-format
+msgid "Mostrar los %(per_page)s resultados previos"
+msgstr "Show the previous %(per_page)s results"
+
+#: .\profiles\templates\profiles\loading.html:162
+#: .\profiles\templates\profiles\candidates.html:170
+#: .\profiles\templates\profiles\results.html:468
+#: .\profiles\templates\profiles\search.html:187
+msgid ""
+"MetricsExplorer recopila y muestra información obtenida a través de APIs "
+"gratuitas y abiertas:"
+msgstr ""
+"MetricsExplorer gathers and displays information obtained through free and "
+"open APIs:"
+
+#: .\profiles\templates\profiles\loading.html:171
+#: .\profiles\templates\profiles\candidates.html:179
+#: .\profiles\templates\profiles\results.html:477
+#: .\profiles\templates\profiles\search.html:196
+msgid "MetricsExplorer ha sido ideado y desarrollado por"
+msgstr "MetricsExplorer was conceived and developed by"
+
+#: .\profiles\templates\profiles\loading.html:210
+msgid "Extrayendo de OpenAlex…"
+msgstr "Extracting from OpenAlex…"
+
+#: .\profiles\templates\profiles\loading.html:212
+msgid "Verificando DOIs…"
+msgstr "Checking DOIs…"
+
+#: .\profiles\templates\profiles\loading.html:213
+msgid "Extrayendo de Crossref EventData…"
+msgstr "Extracting from Crossref Event Data…"
+
+#: .\profiles\templates\profiles\loading.html:214
+msgid "Verificando trabajos en Wikipedia…"
+msgstr "Checking works on Wikipedia…"
+
+#: .\profiles\templates\profiles\loading.html:215
+msgid "Extrayendo de Zenodo…"
+msgstr "Extracting from Zenodo…"
+
+#: .\profiles\templates\profiles\loading.html:216
+msgid "Extrayendo de GitHub…"
+msgstr "Extracting from GitHub…"
+
+#: .\profiles\templates\profiles\loading.html:217
+msgid "Extrayendo de OpenAIRE…"
+msgstr "Extracting from OpenAIRE…"
+
+#: .\profiles\templates\profiles\loading.html:218
+msgid "Terminado"
+msgstr "Finished"
+
+#: .\profiles\templates\profiles\loading.html:219
+msgid "Error"
+msgstr "Error"
+
+#: .\profiles\templates\profiles\loading.html:167
+#: .\profiles\templates\profiles\loading.html:174
+#: .\profiles\templates\profiles\candidates.html:175
+#: .\profiles\templates\profiles\candidates.html:182
+#: .\profiles\templates\profiles\results.html:473
+#: .\profiles\templates\profiles\results.html:480
+#: .\profiles\templates\profiles\search.html:192
+#: .\profiles\templates\profiles\search.html:199
+msgid "y"
+msgstr "and"
+
+#~ msgid "Esto puede tardar un poco. No cierres esta pestaña."
+#~ msgstr "Processing... Please do not close this tab"
+
+#~ msgid "Estado: queued"
+#~ msgstr "State: queued"
+
+#~ msgid "Buscar investigador/a"
+#~ msgstr "Find researcher"
+
+#~ msgid "Ejecutar"
+#~ msgstr "Run"
+
+#: .\profiles\templates\profiles\candidates.html
+msgid "No se ha encontrado el nombre buscado."
+msgstr "No matching name found."
+
+#: .\profiles\templates\profiles\candidates.html
+msgid "Prueba a escribir tu nombre y un apellido en vez del nombre completo (e.g., \"José Gonzalez\", en vez de \"José Antonio Gonzalez Durán\")."
+msgstr "Try entering your first and last name instead of your full name (e.g., \"John Smith\" instead of \"John Michael Smith\")."
+
+#: .\profiles\templates\profiles\candidates.html
+msgid "Verifica que no haya errores de ortografía."
+msgstr "Check for any spelling mistakes."
+
+#: .\profiles\templates\profiles\candidates.html
+msgid "Regresar a la pantalla de búsqueda"
+msgstr "Return to search screen"
+
+
+#: .\profiles\templates\profiles\search.html
+msgid "ORCID no encontrado"
+msgstr "ORCID not found"

@@ -1,0 +1,11 @@
+services:
+  researcher-demo:
+    build: .
+    environment:
+      DEMO_MODE: "true"
+      ENV: development
+      DEBUG: "false"
+      SECRET_KEY: demo-local-secret-not-for-production
+      ALLOWED_HOSTS: localhost,127.0.0.1
+    ports:
+      - "8000:8000"

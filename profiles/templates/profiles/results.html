@@ -1,0 +1,632 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWL4ZHY4QJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DWL4ZHY4QJ');
+  </script>
+  <meta charset="utf-8">
+  <title>{% trans "Resultados" %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Tailwind (igual que en search/loading) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tus estilos -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Instrument+Sans%3A400%2C%7CInter%3A500%2C400&display=fallback&ver=4.12.0">
+  <link rel="stylesheet" href="https://metricsschool.com/wp-content/themes/astra/assets/css/minified/main.min.css?ver=4.12.0">
+  <link rel="stylesheet" href="https://metricsschool.com/wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend.css?ver=2.8.1">
+  <link rel="stylesheet" href="https://metricsschool.com/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css?ver=2.8.1">
+  <link rel="stylesheet" href="/static/profiles/css/app.css">
+  <link rel="stylesheet" href="/static/profiles/css/metricsschool-header.css">
+
+  <!-- Plotly -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      .pdf-hide {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      #results-card {
+        box-shadow: none;
+      }
+
+      .print-avoid-break {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .print-section-gap {
+        margin-top: 12px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <header class="site-header header-main-layout-1 ast-primary-menu-enabled ast-logo-title-inline ast-hide-custom-menu-mobile ast-builder-menu-toggle-icon ast-mobile-header-inline" id="masthead" itemtype="https://schema.org/WPHeader" itemscope="itemscope" itemid="#masthead">
+  			<div id="ast-desktop-header" data-toggle-type="dropdown">
+  		<div class="ast-main-header-wrap main-header-bar-wrap ">
+  		<div class="ast-primary-header-bar ast-primary-header main-header-bar site-header-focus-item" data-section="section-primary-header-builder">
+  							<div class="site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container" data-section="section-primary-header-builder">
+  				<div class="ast-builder-grid-row ast-builder-grid-row-has-sides ast-builder-grid-row-no-center">
+  												<div class="site-header-primary-section-left site-header-section ast-flex site-header-section-left">
+  																<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="title_tagline">
+  										<div class="site-branding ast-site-identity" itemtype="https://schema.org/Organization" itemscope="itemscope">
+  								<span class="site-logo-img"><a href="https://metricsschool.com/" class="custom-logo-link" rel="home" aria-current="page"><img width="162" height="54" src="https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1-162x54.png" class="custom-logo" alt="captura de pantalla 2025 07 16 a la(s) 18.13.31" decoding="async" srcset="https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1-162x54.png 162w, https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1-300x100.png 300w, https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1.png 334w" sizes="(max-width: 162px) 100vw, 162px"></a></span>								</div>
+  						<!-- .site-branding -->
+  								</div>
+  														</div>
+  																										<div class="site-header-primary-section-right site-header-section ast-flex ast-grid-right-section">
+  																				<div class="ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-1">
+  				<div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item" id="primary-site-navigation-desktop" aria-label="{% trans "Navegación del sitio principal" %}" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div class="main-navigation ast-inline-flex"><ul id="ast-hf-menu-1" class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border stack-on-mobile"><li id="menu-item-1382" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1382"><a href="https://metricsschool.com/about/" class="menu-link">{% trans "Nosotros" %}</a></li>
+  <li id="menu-item-1677" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1677"><a href="https://metricsschool.com/consultoria/" class="menu-link">{% trans "Consultoría" %}</a></li>
+  <li id="menu-item-1723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1723"><a href="https://metricsschool.com/cursos/" class="menu-link">{% trans "Cursos" %}</a></li>
+  <li id="menu-item-1584" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1584"><a href="https://metricsschool.com/contacto/" class="menu-link">{% trans "Contacto" %}</a></li>
+  </ul></div></nav></div></div>		</div>
+  						<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-hb-social-icons-1">
+  		<div class="ast-header-social-1-wrap ast-header-social-wrap"><div class="header-social-inner-wrap element-social-inner-wrap social-show-label-false ast-social-color-type-custom ast-social-stack-none ast-social-element-style-filled"><a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer" style="--color: #e96651; --background-color: transparent;" class="ast-builder-social-element ast-inline-flex ast-youtube header-social-item"><span aria-hidden="true" class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span></a><a href="https://www.linkedin.com/company/metrics-school/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" style="--color: #7acdee; --background-color: transparent;" class="ast-builder-social-element ast-inline-flex ast-twitter header-social-item"><span aria-hidden="true" class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></span></a></div></div>		</div>
+  																</div>
+  																												</div>
+  																</div>
+  							</div>
+  		</div> <!-- Main Header Bar Wrap -->
+  </header>
+  <div class="min-h-screen flex flex-col items-center justify-center px-4 py-10">
+
+    <!-- Card principal Metrics Explorer -->
+    <main id="results-card" class="relative w-full max-w-5xl bg-white rounded-3xl shadow-lg p-6 sm:p-8 md:p-10 flex flex-col gap-8">
+      <!-- HEADER -->
+      <header class="flex flex-col items-center text-center gap-2">
+        <div class="grid w-full grid-cols-[1fr_auto_1fr] items-center">
+          <div></div>
+          <h1 class="text-2xl md:text-3xl font-bold text-[#370562] justify-self-center">
+            <a
+              href="https://metricsexplorer.metricsschool.com/"
+              class="inline-flex items-center rounded-full bg-[#E6D9F6] px-4 py-2 shadow-sm"
+              onclick="window.location.href='{% url 'profiles:search' %}'; return false;"
+            >
+              Metrics Explorer
+            </a>
+          </h1>
+          <div class="flex flex-col items-end gap-2">
+            <button
+              id="export-pdf-button"
+              type="button"
+              class="pdf-hide inline-flex items-center justify-center rounded-xl border border-[#8342CE] bg-white px-6 py-3 text-base text-[#8342CE] font-medium hover:text-[#370562] hover:underline"
+              onclick="exportResultsPdf()"
+              data-author-id="{{ author.id_author|default_if_none:'' }}"
+              data-author-name="{{ author.name|default_if_none:'' }}"
+            >
+              {% trans "Exportar a PDF" %}
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+          <span class="w-3 h-3 rounded-full bg-[#F4C744] animate-pulse"></span>
+          <span>{% trans "Versión Beta" %}</span>
+        </div>
+        {% if author %}
+          <p class="text-sm text-gray-600">
+            {% trans "Resultados para" %} <span class="font-semibold">{{ author.name }}</span>
+          </p>
+        {% endif %}
+      </header>
+
+      {% if author %}
+        <!-- BLOQUE 1: RESUMEN DEL INVESTIGADOR -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div id="elapsed-time" class="pdf-hide md:col-span-3 text-xs text-gray-500">
+            {% trans "Tiempo transcurrido" %}:
+            <span data-elapsed data-elapsed-seconds="{% if author and author.profile_load_time_seconds is not None %}{{ author.profile_load_time_seconds|floatformat:0 }}{% endif %}" class="font-medium text-[#370562]">--:--</span>
+          </div>
+          <!-- Datos básicos -->
+          <div class="md:col-span-1 bg-[#f9f8ff] border border-[#efe9ff] rounded-2xl p-4 text-sm text-gray-700">
+            <h2 class="text-sm font-semibold text-[#370562] mb-2">
+              {% trans "Perfil general" %}
+            </h2>
+            <p><span class="font-bold">{% trans "Nombre" %}:</span> {{ author.name }}</p>
+            <p>
+              <span class="font-bold">ORCID:</span>
+              {% if author.orcid %}
+                {% with clean_orcid=author.orcid|cut:'https://orcid.org/' %}
+                  <a
+                    href="https://orcid.org/{{ clean_orcid }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#8342CE] hover:text-[#370562] underline ml-1"
+                  >
+                    {{ clean_orcid }}
+                  </a>
+                {% endwith %}
+              {% else %}
+                <span class="text-gray-600 ml-1">{% trans "(no disponible)" %}</span>
+              {% endif %}
+            </p>
+            <p>
+              <span class="font-bold">{% trans "Instituciones asociadas" %}:</span>
+              {{ institutions_display|default:"—" }}
+            </p>
+            {% if author.github_name and author.github_name != "skip" %}
+              {% with clean_github=author.github_name|cut:'https://github.com/'|cut:'http://github.com/'|cut:'github.com/'|cut:'@' %}
+                <p>
+              <span class="font-bold">GitHub:</span>
+                  <a
+                    href="https://github.com/{{ clean_github }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#8342CE] hover:text-[#370562] underline ml-1"
+                  >
+                    {{ clean_github }}
+                  </a>
+                </p>
+              {% endwith %}
+            {% endif %}
+            {% if author.zenodo_name and author.zenodo_name != "skip" %}
+              <p><span class="font-medium">Zenodo:</span></p>
+            {% endif %}
+          </div>
+
+          <!-- KPIs -->
+          <div class="md:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+            <!-- N publicaciones -->
+            <div class="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3">
+              <p class="text-xs uppercase tracking-wide text-gray-500">{% trans "Publicaciones" %}</p>
+              <p class="text-xl font-semibold text-[#370562]">{{ author.n_publicaciones }}</p>
+            </div>
+
+            <!-- N citas -->
+            <div class="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3">
+              <p class="text-xs uppercase tracking-wide text-gray-500">{% trans "Citas totales" %}</p>
+              <p class="text-xl font-semibold text-[#370562]">{{ author.n_citas }}</p>
+            </div>
+
+            <!-- h-index -->
+            <div class="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3">
+              <p class="text-xs uppercase tracking-wide text-gray-500">h-index</p>
+              <p class="text-xl font-semibold text-[#370562]">{{ author.h_index }}</p>
+            </div>
+
+            <!-- i10-index -->
+            <div class="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3">
+              <p class="text-xs uppercase tracking-wide text-gray-500">i10-index</p>
+              <p class="text-xl font-semibold text-[#370562]">{{ author.i10_index }}</p>
+            </div>
+
+            <!-- N OA -->
+            <div class="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3">
+              <p class="text-xs uppercase tracking-wide text-gray-500">
+                {% trans "Publicaciones OA" %}
+              </p>
+              <p class="text-xl font-semibold text-[#370562]">
+                {{ author.n_publicaciones_oa }}
+                {% if oa_pct %}
+                  <span class="text-sm text-gray-500">({{ oa_pct }}%)</span>
+                {% endif %}
+              </p>
+            </div>
+
+            <!-- Citas promedio / publicación -->
+            <div class="rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3">
+              <p class="text-xs uppercase tracking-wide text-gray-500">
+                {% trans "Citas / publicación" %}
+              </p>
+              <p class="text-xl font-semibold text-[#370562]">
+                {{ author.publicaciones_citas_avrg }}
+              </p>
+            </div>
+          </div>
+        </section>
+      {% else %}
+        <p class="text-sm text-gray-600">{% trans "No hay datos en author_summary." %}</p>
+      {% endif %}
+
+      <!-- BLOQUE 2: TOP 5 PUBLICACIONES -->
+      <section class="print-avoid-break print-section-gap space-y-3">
+        <h2 class="text-lg font-semibold text-[#370562]">
+          {% trans "Top 5 publicaciones más citadas" %}
+        </h2>
+
+        {% if top5 %}
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-sm text-left">
+              <thead class="border-b bg-gray-50">
+                <tr class="text-gray-600">
+                  <th class="py-2 pr-4">{% trans "Tipo" %}</th>
+                  <th class="py-2 px-4">{% trans "Título" %}</th>
+                  <th class="py-2 px-4">{% trans "DOI" %}</th>
+                  <th class="py-2 px-4">{% trans "Año" %}</th>
+                  <th class="py-2 px-4">{% trans "Autores" %}</th>
+                  <th class="py-2 px-4 text-right">{% trans "Citas" %}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y">
+                {% for w in top5 %}
+                  <tr>
+                    <!-- Tipo de publicación -->
+                    <td class="py-2 pr-4 align-top text-gray-700">
+                      {% if w.type == "review" %}
+                        {% trans "revisión" %}
+                      {% elif w.type == "preprint" %}
+                        {% trans "preprint" %}
+                      {% elif w.type == "dissertation" %}
+                        {% trans "tesis" %}
+                      {% elif w.type == "book-chapter" %}
+                        {% trans "capítulo libro" %}
+                      {% elif w.type == "book" %}
+                        {% trans "libro" %}
+                      {% elif w.type == "article" %}
+                        {% trans "artículo" %}
+                      {% else %}
+                        {{ w.type|default:"-" }}
+                      {% endif %}
+                    </td>
+
+                    <!-- Título -->
+                    <td class="py-2 px-4 align-top">
+                      <p class="font-medium text-gray-900">{{ w.title }}</p>
+                      {% if w.published_in %}
+                        <p class="text-xs text-gray-600 italic">
+                          {{ w.published_in }}
+                        </p>
+                      {% endif %}
+                    </td>
+
+                    <!-- DOI -->
+                    <td class="py-2 px-4 align-top">
+                      {% if w.doi %}
+                        {% with clean_doi=w.doi|cut:"https://doi.org/" %}
+                          <a
+                            href="https://doi.org/{{ clean_doi }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-xs text-[#8342CE] hover:text-[#370562] hover:underline break-all"
+                          >
+                            {{ clean_doi }}
+                          </a>
+                        {% endwith %}
+                      {% else %}
+                        <span class="text-xs text-gray-400">—</span>
+                      {% endif %}
+                    </td>
+
+                    <!-- Año -->
+                    <td class="py-2 px-4 align-top text-gray-700">
+                      {{ w.year }}
+                    </td>
+
+                    <!-- Autores -->
+                    <td class="py-2 px-4 align-top text-gray-700">
+                      {{ w.authors }}
+                    </td>
+
+                    <!-- Citas -->
+                    <td class="py-2 px-4 align-top text-right font-semibold text-gray-900">
+                      {{ w.cited_by }}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p class="text-sm text-gray-600">
+            {% trans "No hay trabajos." %}
+          </p>
+        {% endif %}
+      </section>
+
+      <!-- BLOQUE 3: GRÁFICA PUBLICACIONES POR AÑO -->
+      <section class="print-avoid-break print-section-gap space-y-3">
+        <h2 class="text-lg font-semibold text-[#370562]">
+          {% trans "Gráfica de publicaciones por año" %}
+        </h2>
+        <p class="text-xs text-gray-500">
+          {% trans "Eje X: año de publicación. Eje Y: número de publicaciones, desglosado por tipo." %}
+        </p>
+        <div id="pubs-chart" class="w-full h-80 md:h-96"></div>
+      </section>
+
+      <!-- BLOQUE 4: TOP 5 ARTÍCULOS MENCIONADOS EN WIKIPEDIA -->
+      <section class="space-y-3">
+        <h2 class="text-lg font-semibold text-[#370562]">
+          {% trans "Top 5 artículos mencionados en wikipedia" %}
+        </h2>
+
+        {% if top5_wikipedia %}
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-sm text-left">
+              <thead class="border-b bg-gray-50">
+                <tr class="text-gray-600">
+                  <th class="py-2 pr-4">{% trans "Tipo" %}</th>
+                  <th class="py-2 px-4">{% trans "Título" %}</th>
+                  <th class="py-2 px-4">{% trans "DOI" %}</th>
+                  <th class="py-2 px-4">{% trans "Año" %}</th>
+                  <th class="py-2 px-4">{% trans "Autores" %}</th>
+                  <th class="py-2 px-4">{% trans "Wikipedia" %}</th>
+                  <th class="py-2 px-4 text-right">{% trans "Menciones" %}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y">
+                {% for w in top5_wikipedia %}
+                  <tr>
+                    <td class="py-2 pr-4 align-top text-gray-700">
+                      {% if w.type == "review" %}
+                        {% trans "revisión" %}
+                      {% elif w.type == "preprint" %}
+                        {% trans "preprint" %}
+                      {% elif w.type == "dissertation" %}
+                        {% trans "tesis" %}
+                      {% elif w.type == "book-chapter" %}
+                        {% trans "capítulo libro" %}
+                      {% elif w.type == "book" %}
+                        {% trans "libro" %}
+                      {% elif w.type == "article" %}
+                        {% trans "artículo" %}
+                      {% else %}
+                        {{ w.type|default:"-" }}
+                      {% endif %}
+                    </td>
+                    <td class="py-2 px-4 align-top">
+                      <p class="font-medium text-gray-900">{{ w.title }}</p>
+                      {% if w.published_in %}
+                        <p class="text-xs text-gray-600 italic">{{ w.published_in }}</p>
+                      {% endif %}
+                    </td>
+                    <td class="py-2 px-4 align-top">
+                      {% if w.doi %}
+                        {% with clean_doi=w.doi|cut:"https://doi.org/" %}
+                          <a
+                            href="https://doi.org/{{ clean_doi }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-xs text-[#8342CE] hover:text-[#370562] hover:underline break-all"
+                          >
+                            {{ clean_doi }}
+                          </a>
+                        {% endwith %}
+                      {% else %}
+                        <span class="text-xs text-gray-400">—</span>
+                      {% endif %}
+                    </td>
+                    <td class="py-2 px-4 align-top text-gray-700">{{ w.year }}</td>
+                    <td class="py-2 px-4 align-top text-gray-700">{{ w.authors }}</td>
+                    <td class="py-2 px-4 align-top">
+                      {% if w.wikipedia_url %}
+                        <a
+                          href="{{ w.wikipedia_url }}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-xs text-[#8342CE] hover:text-[#370562] hover:underline break-all"
+                        >
+                          {{ w.wikipedia_url }}
+                        </a>
+                      {% else %}
+                        <span class="text-xs text-gray-400">—</span>
+                      {% endif %}
+                    </td>
+                    <td class="py-2 px-4 align-top text-right font-semibold text-gray-900">{{ w.wikipedia_mentions }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p class="text-sm text-gray-600">{% trans "No hay trabajos." %}</p>
+        {% endif %}
+      </section>
+
+      <!-- BLOQUE 5: REPOSITORIOS GITHUB/ZENODO -->
+      <section class="space-y-3">
+        <h2 class="text-lg font-semibold text-[#370562]">{% trans "Repositorios" %}</h2>
+
+        {% if repos %}
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-sm text-left">
+              <thead class="border-b bg-gray-50">
+                <tr class="text-gray-600">
+                  <th class="py-2 pr-4">{% trans "Tipo" %}</th>
+                  <th class="py-2 px-4">{% trans "Título" %}</th>
+                  <th class="py-2 px-4">{% trans "DOI / URL" %}</th>
+                  <th class="py-2 px-4">{% trans "Año" %}</th>
+                  <th class="py-2 px-4">{% trans "Autores" %}</th>
+                  <th class="py-2 px-4 text-right">{% trans "Citas" %}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y">
+                {% for repo in repos %}
+                  <tr>
+                    <td class="py-2 pr-4 align-top text-gray-700">{{ repo.display_type }}</td>
+                    <td class="py-2 px-4 align-top">
+                      <p class="font-medium text-gray-900">{{ repo.title }}</p>
+                      {% if repo.api_source %}
+                        <p class="text-xs text-gray-600 italic">{{ repo.api_source|capfirst }}</p>
+                      {% endif %}
+                    </td>
+                    <td class="py-2 px-4 align-top">
+                      {% if repo.doi %}
+                        {% with clean_repo_doi=repo.doi|cut:"https://doi.org/" %}
+                          <a
+                            href="https://doi.org/{{ clean_repo_doi }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-xs text-[#8342CE] hover:text-[#370562] hover:underline break-all"
+                          >
+                            {{ clean_repo_doi }}
+                          </a>
+                        {% endwith %}
+                      {% elif repo.github_url %}
+                        <a
+                          href="{{ repo.github_url }}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-xs text-[#8342CE] hover:text-[#370562] hover:underline break-all"
+                        >
+                          {{ repo.github_url }}
+                        </a>
+                      {% else %}
+                        <span class="text-xs text-gray-400">—</span>
+                      {% endif %}
+                    </td>
+                    <td class="py-2 px-4 align-top text-gray-700">{{ repo.year }}</td>
+                    <td class="py-2 px-4 align-top text-gray-700">{{ repo.authors }}</td>
+                    <td class="py-2 px-4 align-top text-right font-semibold text-gray-900">{{ repo.cited_by|default:"-" }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p class="text-sm text-gray-600">{% trans "No hay repositorios disponibles." %}</p>
+        {% endif %}
+      </section>
+    </main>
+
+
+    <footer class="pdf-hide w-full max-w-3xl mx-auto mt-6 flex flex-col items-center gap-2 text-center">
+      <p class="text-[11px] text-gray-400">{% trans "Actualizado: febrero 2026" %}</p>
+      <p class="text-[11px] text-gray-400">
+        {% trans "MetricsExplorer recopila y muestra información obtenida a través de APIs gratuitas y abiertas:" %}
+        <a class="underline hover:text-gray-500" href="https://openalex.org/" target="_blank" rel="noopener noreferrer">OpenAlex</a>,
+        <a class="underline hover:text-gray-500" href="https://www.crossref.org/services/event-data/" target="_blank" rel="noopener noreferrer">Crossref Event Data</a>,
+        <a class="underline hover:text-gray-500" href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo</a>,
+        <a class="underline hover:text-gray-500" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        {% trans "y" %}
+        <a class="underline hover:text-gray-500" href="https://graph.openaire.eu/" target="_blank" rel="noopener noreferrer">OpenAIRE</a>
+      </p>
+      <p class="text-[11px] text-gray-400">
+        {% trans "MetricsExplorer ha sido ideado y desarrollado por" %}
+        <a class="underline hover:text-gray-500" href="https://www.linkedin.com/in/sof%C3%ADa-calle-pesantez/" target="_blank" rel="noopener noreferrer">Sofía Calle</a>,
+        <a class="underline hover:text-gray-500" href="https://www.linkedin.com/in/ismaellaredavid/" target="_blank" rel="noopener noreferrer">Ismael Lare</a>
+        {% trans "y" %}
+        <a class="underline hover:text-gray-500" href="https://www.linkedin.com/in/djsolnav/" target="_blank" rel="noopener noreferrer">Diego Soler</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- Plotly: gráfico de publicaciones por año y tipo -->
+  <script>
+    (function(){
+      const ctx = JSON.parse('{{ chart_json|escapejs }}');
+      const years = ctx.years;
+      const series = ctx.series;
+
+      const typeLabels = {
+        review: '{% trans "revisión" %}',
+        preprint: '{% trans "preprint" %}',
+        dissertation: '{% trans "tesis" %}',
+        'book-chapter': '{% trans "capítulo libro" %}',
+        book: '{% trans "libro" %}',
+        article: '{% trans "artículo" %}'
+      };
+
+      const traces = series.map(s => {
+        const label = typeLabels[s.type] || s.type;
+        return {
+          x: years.map(String),
+          y: s.y,
+          type: 'bar',
+          name: label
+        };
+      });
+
+      const layout = {
+        barmode: 'stack',
+        xaxis: {
+          title: {
+            text: '{% trans "Año" %}',
+            standoff: 20
+          },
+          type: 'category',
+          categoryorder: 'category ascending',
+          automargin: true
+        },
+        yaxis: {
+          title: '{% trans "Número de publicaciones" %}'
+        },
+        margin: { t: 10, r: 10, b: 50, l: 50 }
+      };
+
+      Plotly.newPlot('pubs-chart', traces, layout, {responsive: true});
+    })();
+  </script>
+  <script>
+    function exportResultsPdf() {
+      const button = document.getElementById("export-pdf-button");
+      if (!button) {
+        return;
+      }
+
+      const sanitize = (value) =>
+        value
+          .toString()
+          .trim()
+          .replace(/\s+/g, "_")
+          .replace(/[^\w-]/g, "");
+
+      const authorId = sanitize(button.dataset.authorId || "") || "author";
+      const authorName = sanitize(button.dataset.authorName || "") || "results";
+      const filename = `${authorId}_${authorName}_results.pdf`;
+      const originalTitle = document.title;
+
+      const handleAfterPrint = () => {
+        document.title = originalTitle;
+        window.removeEventListener("afterprint", handleAfterPrint);
+      };
+
+      document.title = filename;
+      window.addEventListener("afterprint", handleAfterPrint);
+      window.print();
+    }
+  </script>
+  <script>
+    (function() {
+      const elapsedContainer = document.getElementById("elapsed-time");
+      if (!elapsedContainer) {
+        return;
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const taskId = params.get("task");
+      if (!taskId) {
+        elapsedContainer.classList.add("hidden");
+        return;
+      }
+
+      const elapsedValue = elapsedContainer.querySelector("[data-elapsed]");
+      const elapsedFromDb = Number(elapsedValue?.dataset.elapsedSeconds);
+      const elapsedSeconds = Number.isFinite(elapsedFromDb)
+        ? elapsedFromDb
+        : Number(sessionStorage.getItem(`metrics_elapsed_${taskId}`));
+      if (!Number.isFinite(elapsedSeconds)) {
+        elapsedContainer.classList.add("hidden");
+        return;
+      }
+
+      const minutes = String(Math.floor(elapsedSeconds / 60)).padStart(2, "0");
+      const seconds = String(elapsedSeconds % 60).padStart(2, "0");
+      const elapsedText = `${minutes}:${seconds}`;
+      if (elapsedValue) {
+        elapsedValue.textContent = elapsedText;
+      }
+      sessionStorage.removeItem(`metrics_elapsed_${taskId}`);
+    })();
+  </script>
+</body>
+</html>

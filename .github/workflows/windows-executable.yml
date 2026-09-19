@@ -1,0 +1,90 @@
+name: Build Windows executable
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "demo-v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      DEMO_MODE: "true"
+      LOCAL_ETL_MODE: "true"
+      ENV: development
+      DEBUG: "false"
+      SECRET_KEY: build-only-secret
+      METRICS_EXPLORER_PORT: "8765"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-executable.txt
+
+      - name: Build portable application
+        shell: powershell
+        run: .\build_executable.ps1
+
+      - name: Test local SQLite mode
+        shell: powershell
+        run: .\.build-venv\Scripts\python.exe manage.py test profiles.tests.test_demo_mode -v 2
+
+      - name: Smoke test executable
+        shell: powershell
+        run: |
+          $stdout = Join-Path $env:RUNNER_TEMP "metrics-explorer.stdout.log"
+          $stderr = Join-Path $env:RUNNER_TEMP "metrics-explorer.stderr.log"
+          $process = Start-Process -FilePath ".\dist\MetricsExplorer-Demo\MetricsExplorer-Demo.exe" -PassThru -WindowStyle Hidden -RedirectStandardOutput $stdout -RedirectStandardError $stderr
+          try {
+            $ready = $false
+            foreach ($attempt in 1..45) {
+              Start-Sleep -Seconds 2
+              if ($process.HasExited) {
+                Write-Host "Executable exited with code $($process.ExitCode)."
+                break
+              }
+              try {
+                $response = Invoke-WebRequest -Uri "http://127.0.0.1:8765/healthz/" -UseBasicParsing -TimeoutSec 3
+                if ($response.StatusCode -eq 200) { $ready = $true; break }
+              } catch {}
+            }
+            if (-not $ready) {
+              Write-Host "----- executable stdout -----"
+              if (Test-Path $stdout) { Get-Content $stdout }
+              Write-Host "----- executable stderr -----"
+              if (Test-Path $stderr) { Get-Content $stderr }
+              throw "The packaged application did not become healthy."
+            }
+          } finally {
+            Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
+          }
+
+      - name: Create ZIP and checksum
+        shell: powershell
+        run: |
+          Compress-Archive -Path ".\dist\MetricsExplorer-Demo" -DestinationPath ".\dist\MetricsExplorer-Demo-Windows.zip"
+          (Get-FileHash ".\dist\MetricsExplorer-Demo-Windows.zip" -Algorithm SHA256).Hash |
+            Set-Content ".\dist\MetricsExplorer-Demo-Windows.zip.sha256"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MetricsExplorer-Demo-Windows
+          path: |
+            dist/MetricsExplorer-Demo-Windows.zip
+            dist/MetricsExplorer-Demo-Windows.zip.sha256
+          if-no-files-found: error
+
+      - name: Attach files to tagged release
+        if: startsWith(github.ref, 'refs/tags/demo-v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/MetricsExplorer-Demo-Windows.zip
+            dist/MetricsExplorer-Demo-Windows.zip.sha256
+          generate_release_notes: true

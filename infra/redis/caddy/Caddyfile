@@ -1,0 +1,3 @@
+metricsexplorer.metricsschool.com {
+    reverse_proxy nginx:80
+}

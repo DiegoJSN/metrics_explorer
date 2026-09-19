@@ -1,0 +1,410 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWL4ZHY4QJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DWL4ZHY4QJ');
+  </script>
+  <meta charset="utf-8">
+  <title>{% trans "Cargando…" %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Instrument+Sans%3A400%2C%7CInter%3A500%2C400&display=fallback&ver=4.12.0">
+  <link rel="stylesheet" href="https://metricsschool.com/wp-content/themes/astra/assets/css/minified/main.min.css?ver=4.12.0">
+  <link rel="stylesheet" href="https://metricsschool.com/wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend.css?ver=2.8.1">
+  <link rel="stylesheet" href="https://metricsschool.com/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css?ver=2.8.1">
+  <link rel="stylesheet" href="/static/profiles/css/app.css">
+  <link rel="stylesheet" href="/static/profiles/css/metricsschool-header.css">
+  <style>
+    .wrap { background: #eee; height: 12px; border-radius: 9999px; overflow: hidden; margin: 16px 0 8px; }
+    .bar { width: 0%; height: 100%; background: #4b7bff; transition: width .25s ease; position: relative; }
+    .bar.indeterminate::after {
+      content: ""; position: absolute; inset: 0; left: -40%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent);
+      animation: slide 1.4s infinite;
+    }
+    @keyframes slide { from { left: -40%; } to { left: 100%; } }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <header class="site-header header-main-layout-1 ast-primary-menu-enabled ast-logo-title-inline ast-hide-custom-menu-mobile ast-builder-menu-toggle-icon ast-mobile-header-inline" id="masthead" itemtype="https://schema.org/WPHeader" itemscope="itemscope" itemid="#masthead">
+  			<div id="ast-desktop-header" data-toggle-type="dropdown">
+  		<div class="ast-main-header-wrap main-header-bar-wrap ">
+  		<div class="ast-primary-header-bar ast-primary-header main-header-bar site-header-focus-item" data-section="section-primary-header-builder">
+  							<div class="site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container" data-section="section-primary-header-builder">
+  				<div class="ast-builder-grid-row ast-builder-grid-row-has-sides ast-builder-grid-row-no-center">
+  												<div class="site-header-primary-section-left site-header-section ast-flex site-header-section-left">
+  																<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="title_tagline">
+  										<div class="site-branding ast-site-identity" itemtype="https://schema.org/Organization" itemscope="itemscope">
+  								<span class="site-logo-img"><a href="https://metricsschool.com/" class="custom-logo-link" rel="home" aria-current="page"><img width="162" height="54" src="https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1-162x54.png" class="custom-logo" alt="captura de pantalla 2025 07 16 a la(s) 18.13.31" decoding="async" srcset="https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1-162x54.png 162w, https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1-300x100.png 300w, https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1.png 334w" sizes="(max-width: 162px) 100vw, 162px"></a></span>								</div>
+  						<!-- .site-branding -->
+  								</div>
+  														</div>
+  																										<div class="site-header-primary-section-right site-header-section ast-flex ast-grid-right-section">
+  																				<div class="ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-1">
+  				<div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item" id="primary-site-navigation-desktop" aria-label="{% trans "Navegación del sitio principal" %}" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div class="main-navigation ast-inline-flex"><ul id="ast-hf-menu-1" class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border stack-on-mobile"><li id="menu-item-1382" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1382"><a href="https://metricsschool.com/about/" class="menu-link">{% trans "Nosotros" %}</a></li>
+  <li id="menu-item-1677" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1677"><a href="https://metricsschool.com/consultoria/" class="menu-link">{% trans "Consultoría" %}</a></li>
+  <li id="menu-item-1723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1723"><a href="https://metricsschool.com/cursos/" class="menu-link">{% trans "Cursos" %}</a></li>
+  <li id="menu-item-1584" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1584"><a href="https://metricsschool.com/contacto/" class="menu-link">{% trans "Contacto" %}</a></li>
+  </ul></div></nav></div></div>		</div>
+  						<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-hb-social-icons-1">
+  		<div class="ast-header-social-1-wrap ast-header-social-wrap"><div class="header-social-inner-wrap element-social-inner-wrap social-show-label-false ast-social-color-type-custom ast-social-stack-none ast-social-element-style-filled"><a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer" style="--color: #e96651; --background-color: transparent;" class="ast-builder-social-element ast-inline-flex ast-youtube header-social-item"><span aria-hidden="true" class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span></a><a href="https://www.linkedin.com/company/metrics-school/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" style="--color: #7acdee; --background-color: transparent;" class="ast-builder-social-element ast-inline-flex ast-twitter header-social-item"><span aria-hidden="true" class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></span></a></div></div>		</div>
+  																</div>
+  																												</div>
+  																</div>
+  							</div>
+  		</div> <!-- Main Header Bar Wrap -->
+  </header>
+  <div class="min-h-screen flex flex-col items-center justify-center px-4 py-10">
+
+    <!-- Card principal tipo Metrics Explorer -->
+    <main class="relative w-full max-w-3xl bg-white rounded-3xl shadow-lg p-6 sm:p-8 md:p-10 flex flex-col gap-6">
+
+      <!-- HEADER -->
+      <header class="flex flex-col items-center text-center gap-2">
+        <h1 class="text-2xl md:text-3xl font-bold text-[#370562]">
+          <button
+            type="button"
+            class="inline-flex items-center rounded-full bg-[#E6D9F6] px-4 py-2 shadow-sm"
+          >
+            Metrics Explorer
+          </button>
+        </h1>
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+          <span class="w-3 h-3 rounded-full bg-[#F4C744] animate-pulse"></span>
+          <span>{% trans "Versión Beta" %}</span>
+        </div>
+      </header>
+
+      <section class="bg-[#f9f8ff] border border-[#efe9ff] rounded-2xl p-4 text-sm text-gray-700">
+        <h2 class="text-sm font-semibold text-[#370562] mb-2">
+          {% trans "Perfil seleccionado" %}
+        </h2>
+        <p>
+          <span class="font-bold">{% trans "Nombre" %}:</span>
+          {% if selected_profile_name %}
+            {{ selected_profile_name }}
+          {% else %}
+            <span class="text-gray-600 ml-1">{% trans "(no disponible)" %}</span>
+          {% endif %}
+        </p>
+        <p>
+          <span class="font-bold">ORCID:</span>
+          {% if selected_profile_orcid %}
+            {% with clean_orcid=selected_profile_orcid|cut:'https://orcid.org/' %}
+              <a
+                href="https://orcid.org/{{ clean_orcid }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-[#8342CE] hover:text-[#370562] underline ml-1"
+              >
+                {{ clean_orcid }}
+              </a>
+            {% endwith %}
+          {% else %}
+            <span class="text-gray-600 ml-1">{% trans "(no disponible)" %}</span>
+          {% endif %}
+        </p>
+        <p>
+          <span class="font-bold">{% trans "Instituciones asociadas" %}:</span>
+          {% if selected_profile_has_institutions %}
+            {{ selected_profile_institutions }}
+          {% else %}
+            <span class="text-gray-600 ml-1">{% trans "(no disponible)" %}</span>
+          {% endif %}
+        </p>
+        {% if selected_profile_github and selected_profile_github != "skip" %}
+          {% with clean_github=selected_profile_github|cut:'https://github.com/'|cut:'http://github.com/'|cut:'github.com/'|cut:'@' %}
+            <p>
+              <span class="font-bold">GitHub:</span>
+              <a
+                href="https://github.com/{{ clean_github }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-[#8342CE] hover:text-[#370562] underline ml-1"
+              >
+                {{ clean_github }}
+              </a>
+            </p>
+          {% endwith %}
+        {% endif %}
+      </section>
+
+      <!-- MENSAJE + BARRA -->
+      <section class="space-y-2">
+        <h2 class="text-xl font-semibold text-[#370562]">
+          {% trans "Estamos preparando tus resultados…" %}
+        </h2>
+        <p class="text-sm text-gray-600">
+          {% trans "Estamos recopilando tus datos y generando el panel de métricas. Esto puede llevar unos minutos, no cierres esta pestaña." %}
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <div class="wrap w-full">
+          <div id="bar" class="bar"></div>
+        </div>
+
+        <div class="flex justify-between items-baseline text-sm text-gray-700">
+          <span class="font-semibold">
+            <span id="pct">0</span>%
+          </span>
+          <span class="text-xs sm:text-sm">
+            {% trans "Estado" %}:
+            <span id="state" class="font-medium text-[#370562]">
+            </span>
+            <span class="block text-[11px] text-gray-500 mt-1">
+              {% trans "Tiempo transcurrido" %}:
+              <span id="timer" class="font-medium text-[#370562]">00:00</span>
+            </span>
+          </span>
+        </div>
+
+        <p id="err" class="text-xs text-red-500"></p>
+        <a
+          id="back-to-search"
+          href="{% url 'profiles:search' %}"
+          class="hidden inline-flex mt-2 items-center rounded-md bg-[#370562] px-3 py-2 text-xs font-medium text-white hover:bg-[#4b1f78] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#370562]"
+        >
+          {% trans "Regresar a la pantalla de búsqueda" %}
+        </a>
+      </section>
+
+      <!-- FORM CSRF OCULTO -->
+      <form id="csrf-form" method="post" class="hidden">
+        {% csrf_token %}
+      </form>
+
+    </main>
+
+
+    <footer class="w-full max-w-3xl mx-auto mt-6 flex flex-col items-center gap-2 text-center">
+      <p class="text-[11px] text-gray-400">{% trans "Actualizado: febrero 2026" %}</p>
+      <p class="text-[11px] text-gray-400">
+        {% trans "MetricsExplorer recopila y muestra información obtenida a través de APIs gratuitas y abiertas:" %}
+        <a class="underline hover:text-gray-500" href="https://openalex.org/" target="_blank" rel="noopener noreferrer">OpenAlex</a>,
+        <a class="underline hover:text-gray-500" href="https://www.crossref.org/services/event-data/" target="_blank" rel="noopener noreferrer">Crossref Event Data</a>,
+        <a class="underline hover:text-gray-500" href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo</a>,
+        <a class="underline hover:text-gray-500" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        {% trans "y" %}
+        <a class="underline hover:text-gray-500" href="https://graph.openaire.eu/" target="_blank" rel="noopener noreferrer">OpenAIRE</a>
+      </p>
+      <p class="text-[11px] text-gray-400">
+        {% trans "MetricsExplorer ha sido ideado y desarrollado por" %}
+        <a class="underline hover:text-gray-500" href="https://www.linkedin.com/in/sof%C3%ADa-calle-pesantez/" target="_blank" rel="noopener noreferrer">Sofía Calle</a>,
+        <a class="underline hover:text-gray-500" href="https://www.linkedin.com/in/ismaellaredavid/" target="_blank" rel="noopener noreferrer">Ismael Lare</a>
+        {% trans "y" %}
+        <a class="underline hover:text-gray-500" href="https://www.linkedin.com/in/djsolnav/" target="_blank" rel="noopener noreferrer">Diego Soler</a>
+      </p>
+    </footer>
+  </div>
+
+
+  <script>
+  (function(){
+    const bar = document.getElementById('bar');
+    const pct = document.getElementById('pct');
+    const state = document.getElementById('state');
+    const timerEl = document.getElementById('timer');
+    const err = document.getElementById('err');
+    const backToSearch = document.getElementById('back-to-search');
+    const csrftoken = document.querySelector('#csrf-form input[name=csrfmiddlewaretoken]').value;
+
+    // Tu ruta usa <int:job_id>. Si usas UUID, cambia a la variante de abajo.
+    const token = "{{ token|escapejs }}";
+    const RUN_URL = token
+      ? "{% url 'profiles:run_etl' %}?token=" + encodeURIComponent(token)
+      : "{% url 'profiles:run_etl' %}";
+
+      // progress con UUID (opción B)
+    const PROGRESS_URL_TEMPLATE = "{% url 'profiles:progress' '00000000-0000-0000-0000-000000000000' %}";
+    const progressUrl = (id) =>
+      PROGRESS_URL_TEMPLATE.replace("00000000-0000-0000-0000-000000000000", id);
+    
+    const JOB_KEY = token ? `metrics_job_id_${token}` : 'metrics_job_id'
+
+    // Variante si tu urls.py fuera <uuid:job_id>:
+
+    let lastPercent = 0;
+    let lastChangeAt = Date.now();
+    let stallTimer = null;
+    let lastPhaseMessage = "";
+    let lastStatusMessage = "";
+    let timerInterval = null;
+    let startedAt = Date.now();
+    const startedKey = (jobId) => `metrics_started_at_${jobId}`;
+    const elapsedKey = (jobId) => `metrics_elapsed_${jobId}`;
+
+    const STATUS_MESSAGES = {
+      running: "{% trans 'Extrayendo de OpenAlex…' %}",
+      phase_openalex: "{% trans 'Extrayendo de OpenAlex…' %}",
+      phase_doi_check: "{% trans 'Verificando DOIs…' %}",
+      phase_crossref: "{% trans 'Extrayendo de Crossref EventData…' %}",
+      phase_wikipedia_check: "{% trans 'Verificando trabajos en Wikipedia…' %}",
+      phase_zenodo: "{% trans 'Extrayendo de Zenodo…' %}",
+      phase_github: "{% trans 'Extrayendo de GitHub…' %}",
+      phase_openaire: "{% trans 'Extrayendo de OpenAIRE…' %}",
+      done: "{% trans 'Terminado' %}",
+      error: "{% trans 'Error' %}"
+    };
+
+    function setPercent(n){
+      const p = Math.max(0, Math.min(100, Math.floor(+n || 0)));
+      const nextPercent = Math.max(lastPercent, p);
+      bar.style.width = nextPercent + "%";
+      pct.textContent = nextPercent;
+      if (nextPercent !== lastPercent) {
+        lastPercent = nextPercent;
+        lastChangeAt = Date.now();
+        bar.classList.remove('indeterminate');
+      }
+    }
+
+    function startTimer(){
+      if (timerInterval) return;
+      const updateTimer = () => {
+        const elapsed = Math.floor((Date.now() - startedAt) / 1000);
+        const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+        const seconds = String(elapsed % 60).padStart(2, '0');
+        timerEl.textContent = `${minutes}:${seconds}`;
+      };
+      updateTimer();
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function startStallWatch(){
+      if (stallTimer) clearInterval(stallTimer);
+      stallTimer = setInterval(()=>{
+        const delta = Date.now() - lastChangeAt;
+        if (delta > 20000 && !bar.classList.contains('indeterminate')) {
+          // Si llevamos >20s sin variación del % mostramos una banda “indeterminada”
+          bar.classList.add('indeterminate');
+        }
+      }, 2000);
+    }
+
+    function showBackToSearch(){
+      backToSearch.classList.remove('hidden');
+    }
+
+    function updateStatus(statusKey) {
+      state.classList.remove('text-red-600');
+      const message = STATUS_MESSAGES[statusKey] || statusKey;
+      state.textContent = message;
+      if (statusKey && statusKey.startsWith('phase_')) {
+        lastPhaseMessage = message;
+      }
+      if (statusKey && statusKey !== 'error' && statusKey !== 'done') {
+        lastStatusMessage = message;
+      }
+      if (/newsfeed/i.test(message)) {
+        const match = message.match(/\((\d+)\s*%\)/);
+        if (match) setPercent(match[1]);
+      }
+    }
+
+    async function poll(jobId){
+      const storedStart = Number(sessionStorage.getItem(startedKey(jobId)));
+      if (Number.isFinite(storedStart)) {
+        startedAt = storedStart;
+      } else {
+        sessionStorage.setItem(startedKey(jobId), String(startedAt));
+      }
+      startTimer();
+      startStallWatch();
+      const every = 2500; // 2.5s
+
+      const tick = async () => {
+        try {
+          const r = await fetch(progressUrl(jobId), { cache: 'no-store' });
+          const data = await r.json();        // {status, percent, error}
+          if (typeof data.percent === 'number') setPercent(data.percent);
+          if (data.status && data.status !== 'error') updateStatus(data.status);
+
+          if (data.status === 'done') {
+            setPercent(100);
+            clearInterval(stallTimer);
+            clearInterval(timerInterval);
+            sessionStorage.setItem(elapsedKey(jobId), String(Math.floor((Date.now() - startedAt) / 1000)));
+            sessionStorage.removeItem(startedKey(jobId));
+            sessionStorage.removeItem(JOB_KEY);
+            // Redirige si quieres:
+            const requestedOrcid = "{{ selected_profile_orcid|default:''|escapejs }}";
+            const requestedName = "{{ selected_profile_name|default:''|escapejs }}";
+            const target = "{% url 'profiles:results' %}"
+              + "?task=" + encodeURIComponent(jobId)
+              + (data.job_pk ? ("&job=" + encodeURIComponent(data.job_pk)) : "")
+              + (requestedOrcid ? ("&orcid=" + encodeURIComponent(requestedOrcid)) : "")
+              + (requestedName ? ("&name=" + encodeURIComponent(requestedName)) : "");
+            window.location.href = target;
+            return;
+          }
+          if (data.status === 'error') {
+            bar.style.background = '#c0392b';
+            const phaseParts = (data.error || '').split('·');
+            const phaseFromError = phaseParts.length > 1 ? phaseParts[0].trim() : "";
+            state.textContent = phaseFromError || lastPhaseMessage || lastStatusMessage || STATUS_MESSAGES.error;
+            state.classList.add('text-red-600');
+            err.textContent = data.error || 'Error';
+            showBackToSearch();
+            clearInterval(stallTimer);
+            clearInterval(timerInterval);
+            sessionStorage.setItem(elapsedKey(jobId), String(Math.floor((Date.now() - startedAt) / 1000)));
+            sessionStorage.removeItem(startedKey(jobId));
+            sessionStorage.removeItem(JOB_KEY);
+            return;
+          }
+        } catch (e) {
+          console.warn('Polling error:', e);
+        }
+        setTimeout(tick, every);
+      };
+      tick();
+    }
+
+    async function start(){
+      const existingJobId = sessionStorage.getItem(JOB_KEY);
+      if (existingJobId) {
+        // No lanzamos otro ETL: solo reanudamos el polling
+        updateStatus('running');
+        poll(existingJobId);
+        return;
+      }
+      try {
+        const res = await fetch(RUN_URL, {
+          method: 'POST',
+          headers: {'X-CSRFToken': csrftoken},
+          credentials: 'same-origin' 
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) throw new Error(data.error || ('HTTP ' + res.status));
+        // Feedback inmediato y arrancar polling real
+        sessionStorage.setItem(JOB_KEY, data.job_id);
+        startedAt = Date.now();
+        sessionStorage.setItem(startedKey(data.job_id), String(startedAt));
+        setPercent(1);
+        updateStatus('running');
+        poll(data.job_id);
+      } catch (e) {
+        bar.style.background = '#c0392b';
+        err.textContent = 'Unable to initialize process: ' + e.message;
+        showBackToSearch();
+        state.textContent = lastPhaseMessage || lastStatusMessage || 'Error';
+        state.classList.add('text-red-600');
+      }
+    }
+
+    start();
+  })();
+  </script>
+</body>
+</html>

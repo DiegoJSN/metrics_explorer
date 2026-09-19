@@ -1,0 +1,321 @@
+{% load i18n %}
+<!doctype html>
+<html lang="es">
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% trans "Búsqueda" %}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Instrument+Sans%3A400%2C%7CInter%3A500%2C400&display=fallback&ver=4.12.0">
+  <link rel="stylesheet" href="https://metricsschool.com/wp-content/themes/astra/assets/css/minified/main.min.css?ver=4.12.0">
+  <link rel="stylesheet" href="https://metricsschool.com/wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend.css?ver=2.8.1">
+  <link rel="stylesheet" href="https://metricsschool.com/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css?ver=2.8.1">
+  <link rel="stylesheet" href="/static/profiles/css/app.css">
+  <link rel="stylesheet" href="/static/profiles/css/metricsschool-header.css">
+</head>
+<body class="bg-gray-50">
+  <header class="site-header header-main-layout-1 ast-primary-menu-enabled ast-logo-title-inline ast-hide-custom-menu-mobile ast-builder-menu-toggle-icon ast-mobile-header-inline" id="masthead" itemtype="https://schema.org/WPHeader" itemscope="itemscope" itemid="#masthead">
+  			<div id="ast-desktop-header" data-toggle-type="dropdown">
+  		<div class="ast-main-header-wrap main-header-bar-wrap ">
+  		<div class="ast-primary-header-bar ast-primary-header main-header-bar site-header-focus-item" data-section="section-primary-header-builder">
+  							<div class="site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container" data-section="section-primary-header-builder">
+  				<div class="ast-builder-grid-row ast-builder-grid-row-has-sides ast-builder-grid-row-no-center">
+  												<div class="site-header-primary-section-left site-header-section ast-flex site-header-section-left">
+  																<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="title_tagline">
+  										<div class="site-branding ast-site-identity" itemtype="https://schema.org/Organization" itemscope="itemscope">
+  								<span class="site-logo-img"><a href="https://metricsschool.com/" class="custom-logo-link" rel="home" aria-current="page"><img width="162" height="54" src="https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1-162x54.png" class="custom-logo" alt="captura de pantalla 2025 07 16 a la(s) 18.13.31" decoding="async" srcset="https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1-162x54.png 162w, https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1-300x100.png 300w, https://metricsschool.com/wp-content/uploads/2025/07/cropped-Captura-de-pantalla-2025-07-16-a-las-18.13.31-1.png 334w" sizes="(max-width: 162px) 100vw, 162px"></a></span>								</div>
+  						<!-- .site-branding -->
+  								</div>
+  														</div>
+  																										<div class="site-header-primary-section-right site-header-section ast-flex ast-grid-right-section">
+  																				<div class="ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-hb-menu-1">
+  				<div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item" id="primary-site-navigation-desktop" aria-label="{% trans "Navegación del sitio principal" %}" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div class="main-navigation ast-inline-flex"><ul id="ast-hf-menu-1" class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border stack-on-mobile"><li id="menu-item-1382" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1382"><a href="https://metricsschool.com/about/" class="menu-link">{% trans "Nosotros" %}</a></li>
+  <li id="menu-item-1677" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1677"><a href="https://metricsschool.com/consultoria/" class="menu-link">{% trans "Consultoría" %}</a></li>
+  <li id="menu-item-1723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1723"><a href="https://metricsschool.com/cursos/" class="menu-link">{% trans "Cursos" %}</a></li>
+  <li id="menu-item-1584" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1584"><a href="https://metricsschool.com/contacto/" class="menu-link">{% trans "Contacto" %}</a></li>
+  </ul></div></nav></div></div>		</div>
+  						<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="section-hb-social-icons-1">
+  		<div class="ast-header-social-1-wrap ast-header-social-wrap"><div class="header-social-inner-wrap element-social-inner-wrap social-show-label-false ast-social-color-type-custom ast-social-stack-none ast-social-element-style-filled"><a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer" style="--color: #e96651; --background-color: transparent;" class="ast-builder-social-element ast-inline-flex ast-youtube header-social-item"><span aria-hidden="true" class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span></a><a href="https://www.linkedin.com/company/metrics-school/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" style="--color: #7acdee; --background-color: transparent;" class="ast-builder-social-element ast-inline-flex ast-twitter header-social-item"><span aria-hidden="true" class="ahfb-svg-iconset ast-inline-flex svg-baseline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></span></a></div></div>		</div>
+  																</div>
+  																												</div>
+  																</div>
+  							</div>
+  		</div> <!-- Main Header Bar Wrap -->
+  </header>
+  <div class="min-h-screen flex flex-col items-center justify-center px-4 py-10">
+
+    <!-- TARJETA PRINCIPAL (MOCKUP METRICS EXPLORER) -->
+    <main class="relative w-full max-w-3xl bg-white rounded-3xl shadow-lg p-6 sm:p-8 md:p-10 mx-auto flex flex-col gap-6 md:gap-8">
+
+      <!-- HEADER -->
+      <header class="flex flex-col items-center text-center gap-2">
+        <h1 class="text-2xl md:text-3xl font-bold text-[#370562]">
+          <button
+            type="button"
+            class="inline-flex items-center rounded-full bg-[#E6D9F6] px-4 py-2 shadow-sm"
+          >
+            Metrics Explorer
+          </button>
+        </h1>
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+          <span class="w-3 h-3 rounded-full bg-[#F4C744] animate-pulse"></span>
+          <span>{% trans "Versión Beta" %}</span>
+        </div>
+      </header>
+
+      {% if local_etl_mode %}
+      <section class="w-full rounded-2xl border border-emerald-200 bg-emerald-50 p-5 text-center space-y-4">
+        <div class="space-y-2">
+          <p class="text-xs font-bold uppercase tracking-wide text-emerald-700">Análisis local</p>
+          <h2 class="text-lg font-semibold text-[#370562]">Ejecuta el análisis completo</h2>
+          <p class="text-sm text-gray-600">Introduce un ORCID o un nombre. El ETL se ejecutará en este ordenador y consultará fuentes públicas.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <button
+            type="button"
+            id="use-orcid-example"
+            class="rounded-xl border border-emerald-300 bg-white px-4 py-3 text-sm font-semibold text-emerald-800 hover:bg-emerald-100 transition"
+          >
+            Usar ejemplo con ORCID
+          </button>
+          <button
+            type="button"
+            id="use-name-example"
+            class="rounded-xl border border-emerald-300 bg-white px-4 py-3 text-sm font-semibold text-emerald-800 hover:bg-emerald-100 transition"
+          >
+            Usar ejemplo con Nombre + GitHub
+          </button>
+        </div>
+        <p
+          id="example-guidance"
+          class="hidden rounded-lg bg-emerald-100 px-3 py-2 text-sm font-medium text-emerald-900"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+      {% else %}
+      <section class="w-full rounded-2xl border border-[#8342CE]/25 bg-[#F5F0FB] p-5 text-center space-y-4">
+        <div class="space-y-2">
+          <p class="text-xs font-bold uppercase tracking-wide text-[#8342CE]">Portfolio / Demo Version</p>
+          <h2 class="text-lg font-semibold text-[#370562]">Prueba los ejemplos precargados</h2>
+          <p class="text-sm text-gray-600">Elige un ejemplo para completar el formulario y después pulsa <strong>Analizar</strong>. Debido a las limitaciones de uso del servidor gratuito de Render, la demo online utiliza instantáneas precargadas y no ejecuta el ETL real.</p>
+        </div>
+        <div class="rounded-xl border border-amber-300 bg-amber-50 p-4 text-left">
+          <p class="text-sm font-semibold text-amber-900">¿Quieres probar la versión completamente funcional?</p>
+          <p class="mt-1 text-sm text-amber-800">Usa el ejecutable para Windows: permite buscar cualquier nombre u ORCID y ejecutar el flujo real en tu ordenador.</p>
+          <a
+            href="https://github.com/MetricsSchool/researcher_tool/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-3 inline-flex items-center justify-center rounded-lg bg-[#8342CE] px-4 py-2 text-sm font-semibold text-white hover:bg-[#370562] transition"
+          >
+            Descargar ejecutable — recomendado
+          </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <button
+            type="button"
+            id="use-orcid-example"
+            class="rounded-xl border border-[#8342CE]/30 bg-white px-4 py-3 text-sm font-semibold text-[#370562] hover:bg-[#E6D9F6] transition"
+          >
+            Usar ejemplo con ORCID
+          </button>
+          <button
+            type="button"
+            id="use-name-example"
+            class="rounded-xl border border-[#8342CE]/30 bg-white px-4 py-3 text-sm font-semibold text-[#370562] hover:bg-[#E6D9F6] transition"
+          >
+            Usar ejemplo con Nombre + GitHub
+          </button>
+        </div>
+        <p
+          id="example-guidance"
+          class="hidden rounded-lg bg-[#E6D9F6] px-3 py-2 text-sm font-medium text-[#370562]"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+      {% endif %}
+
+      <!-- FORMULARIO DE BÚSQUEDA -->
+      {% if orcid_not_found %}
+        <section class="w-full rounded-2xl border border-red-200 bg-red-50 p-5 text-center space-y-4">
+          <p class="text-sm font-medium text-red-700">{% trans "ORCID no encontrado" %}</p>
+          <a
+            href="{% url 'profiles:search' %}"
+            class="inline-flex items-center justify-center bg-[#8342CE] text-white font-medium px-6 py-3 rounded-xl hover:bg-[#370562] transition text-sm"
+          >
+            {% trans "Regresar a la pantalla de búsqueda" %}
+          </a>
+        </section>
+      {% else %}
+      <form method="post" class="w-full grid grid-cols-1 gap-4" id="search-form">
+        {% csrf_token %}
+
+        <!-- INTRO -->
+        <p class="text-sm text-gray-700">
+          {% trans "Ingresa tu ORCID (recomendado) o tu nombre para iniciar el análisis." %}
+        </p>
+
+        <!-- ORCID -->
+        <div class="flex flex-col">
+          <label for="id_orcid" class="text-sm font-medium text-[#370562] mb-1">
+            ORCID
+          </label>
+          <input
+            id="id_orcid"
+            name="orcid"
+            type="text"
+            placeholder="0000-0000-0000-0000"
+            class="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8342CE]/50 text-gray-700"
+            value="{{ form.orcid.value|default_if_none:'' }}"
+          >
+          {% if form.orcid.errors %}
+            <p class="text-xs text-red-500 mt-1">{{ form.orcid.errors.0 }}</p>
+          {% endif %}
+          <p class="text-xs text-gray-500 mt-2">
+            {% trans "Si usas tu ORCID, la búsqueda es directa." %}
+          </p>
+        </div>
+
+        <!-- NOMBRE -->
+        <div class="flex flex-col">
+          <label for="id_researcher_name" class="text-sm font-medium text-[#370562] mb-1">
+            {% trans "Nombre" %}
+          </label>
+          <input
+            id="id_researcher_name"
+            name="researcher_name"
+            type="text"
+            placeholder="{% trans 'Tu nombre y apellidos' %}"
+            class="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8342CE]/50 text-gray-700"
+            value="{{ form.researcher_name.value|default_if_none:'' }}"
+          >
+          {% if form.researcher_name.errors %}
+            <p class="text-xs text-red-500 mt-1">{{ form.researcher_name.errors.0 }}</p>
+          {% endif %}
+          <p class="text-xs text-gray-500 mt-2">
+            {% trans "Si utilizas tu nombre, tendrás que buscarte entre una lista de posibles candidatos." %}
+          </p>
+        </div>
+
+        <!-- GITHUB (OPCIONAL) -->
+        <div class="flex flex-col">
+          <label for="id_github_name" class="text-sm font-medium text-[#370562] mb-1">
+            {% trans "Usuario de GitHub (opcional)" %}
+          </label>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input
+              id="id_github_name"
+              name="github_name"
+              type="text"
+              placeholder="{% trans 'tu-usuario' %}"
+              class="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#8342CE]/50 text-gray-700"
+              value="{% if form.github_name.value == 'skip' %}{% else %}{{ form.github_name.value|default_if_none:'' }}{% endif %}"
+            >
+          </div>
+          {% if form.github_name.errors %}
+            <p class="text-xs text-red-500 mt-1">{{ form.github_name.errors.0 }}</p>
+          {% endif %}
+          <p class="text-xs text-gray-500 mt-2">
+            {% trans "Si compartes software, repositorios o datasets, podremos conectar esos datos en tu panel." %}
+          </p>
+        </div>
+
+        <!-- BOTÓN + AVISO -->
+        <div class="flex flex-col items-center gap-3 mt-2">
+          <button
+            type="submit"
+            id="analyze-button"
+            class="bg-[#8342CE] text-white font-medium px-8 py-3 rounded-xl hover:bg-[#370562] transition text-sm sm:w-auto w-full"
+          >
+            {% trans "Analizar" %}
+          </button>
+          <p class="text-xs text-red-500 text-center">
+            {% trans "Se recomienda realizar solo una consulta al mismo tiempo" %}
+          </p>
+          <p class="text-xs text-gray-500 text-center">
+            {% blocktrans trimmed %}Al hacer clic en "Analizar", aceptas nuestra{% endblocktrans %}
+            <a class="underline hover:text-gray-600" href="https://metricsschool.com/politica-de-cookies-ue/" target="_blank" rel="noopener noreferrer">{% trans "Política de cookies" %}</a>
+            {% trans "y nuestra" %}
+            <a class="underline hover:text-gray-600" href="https://metricsschool.com/declaracion-de-privacidad/" target="_blank" rel="noopener noreferrer">{% trans "Declaración de privacidad" %}</a>
+          </p>
+        </div>
+      </form>
+      {% endif %}
+
+      <!-- BLOQUE EXPLICATIVO -->
+      <div class="bg-[#f9f8ff] border border-[#efe9ff] rounded-2xl p-4 text-sm text-gray-700">
+        <p>
+          <span class="font-semibold text-[#370562]">{% trans "¿Qué obtendrás?" %}</span>
+          {% blocktrans trimmed %}
+            Un panel con indicadores tradicionales y alternativos. En el futuro, también se incluirán visualizaciones exportables y un glosario de métricas para interpretar tus resultados.
+          {% endblocktrans %}
+        </p>
+      </div>
+
+    </main>
+
+    <footer class="w-full max-w-3xl mx-auto mt-6 flex flex-col items-center gap-2 text-center">
+      <p class="text-[11px] text-gray-400">{% trans "Actualizado: febrero 2026" %}</p>
+      <p class="text-[11px] text-gray-400">
+        {% trans "MetricsExplorer recopila y muestra información obtenida a través de APIs gratuitas y abiertas:" %}
+        <a class="underline hover:text-gray-500" href="https://openalex.org/" target="_blank" rel="noopener noreferrer">OpenAlex</a>,
+        <a class="underline hover:text-gray-500" href="https://www.crossref.org/services/event-data/" target="_blank" rel="noopener noreferrer">Crossref Event Data</a>,
+        <a class="underline hover:text-gray-500" href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo</a>,
+        <a class="underline hover:text-gray-500" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        {% trans "y" %}
+        <a class="underline hover:text-gray-500" href="https://graph.openaire.eu/" target="_blank" rel="noopener noreferrer">OpenAIRE</a>
+      </p>
+      <p class="text-[11px] text-gray-400">
+        {% trans "MetricsExplorer ha sido ideado y desarrollado por" %}
+        <a class="underline hover:text-gray-500" href="https://www.linkedin.com/in/sof%C3%ADa-calle-pesantez/" target="_blank" rel="noopener noreferrer">Sofía Calle</a>,
+        <a class="underline hover:text-gray-500" href="https://www.linkedin.com/in/ismaellaredavid/" target="_blank" rel="noopener noreferrer">Ismael Lare</a>
+        {% trans "y" %}
+        <a class="underline hover:text-gray-500" href="https://www.linkedin.com/in/djsolnav/" target="_blank" rel="noopener noreferrer">Diego Soler</a>
+      </p>
+    </footer>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchForm = document.getElementById("search-form");
+      const analyzeButton = document.getElementById("analyze-button");
+      const orcidInput = document.getElementById("id_orcid");
+      const nameInput = document.getElementById("id_researcher_name");
+      const githubInput = document.getElementById("id_github_name");
+      const orcidExampleButton = document.getElementById("use-orcid-example");
+      const nameExampleButton = document.getElementById("use-name-example");
+      const exampleGuidance = document.getElementById("example-guidance");
+
+      const showExampleGuidance = (message) => {
+        if (!exampleGuidance) return;
+        exampleGuidance.textContent = message;
+        exampleGuidance.classList.remove("hidden");
+        analyzeButton?.focus();
+      };
+
+      orcidExampleButton?.addEventListener("click", () => {
+        if (orcidInput) orcidInput.value = "0000-0002-7153-7660";
+        if (nameInput) nameInput.value = "";
+        if (githubInput) githubInput.value = "";
+        showExampleGuidance('Ejemplo cargado. Ahora pulsa el botón "Analizar".');
+      });
+
+      nameExampleButton?.addEventListener("click", () => {
+        if (orcidInput) orcidInput.value = "";
+        if (nameInput) nameInput.value = "Diego J. Soler Navarro";
+        if (githubInput) githubInput.value = "DiegoJSN";
+        showExampleGuidance('Nombre y GitHub cargados. Ahora pulsa el botón "Analizar".');
+      });
+      if (searchForm && analyzeButton) {
+        searchForm.addEventListener("submit", () => {
+          analyzeButton.disabled = true;
+          analyzeButton.setAttribute("aria-disabled", "true");
+          analyzeButton.classList.add("opacity-70", "cursor-not-allowed");
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>

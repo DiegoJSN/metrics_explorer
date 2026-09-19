@@ -1,0 +1,186 @@
+:root {
+  --ast-global-color-2: #222222;
+  --ast-global-color-3: #454545;
+  --ast-global-color-5: #ffffff;
+  --ast-global-color-7: #001219;
+  --ast-global-color-subtle-background: #d1d1d1;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+.ast-button,
+.ast-custom-button {
+  font-family: 'Instrument Sans', sans-serif;
+}
+
+header .custom-logo-link img {
+  max-width: 162px;
+  width: 162px;
+}
+
+#masthead .custom-logo:nth-of-type(n + 2),
+#masthead .custom-logo-link:nth-of-type(n + 2),
+#masthead .site-logo-img:nth-of-type(n + 2) {
+  display: none;
+}
+
+.ast-mobile-header-content > *,
+.ast-desktop-header-content > * {
+  padding: 10px 0;
+  height: auto;
+}
+
+.ast-mobile-header-content > *:first-child,
+.ast-desktop-header-content > *:first-child {
+  padding-top: 10px;
+}
+
+.ast-mobile-header-content > .ast-builder-menu,
+.ast-desktop-header-content > .ast-builder-menu {
+  padding-top: 0;
+}
+
+.ast-mobile-header-content > *:last-child,
+.ast-desktop-header-content > *:last-child {
+  padding-bottom: 0;
+}
+
+#ast-desktop-header {
+  display: block;
+}
+
+#ast-mobile-header {
+  display: none;
+}
+
+@media (max-width: 921.9px) {
+  #ast-desktop-header {
+    display: none;
+  }
+
+  #ast-mobile-header {
+    display: block;
+  }
+}
+
+.ast-mobile-header-wrap .ast-primary-header-bar,
+.ast-primary-header-bar .site-primary-header-wrap {
+  min-height: 80px;
+}
+
+.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item {
+  line-height: 80px;
+}
+
+.ast-header-break-point #masthead .ast-mobile-header-wrap .ast-primary-header-bar,
+.ast-header-break-point #masthead .ast-mobile-header-wrap .ast-below-header-bar,
+.ast-header-break-point #masthead .ast-mobile-header-wrap .ast-above-header-bar {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.ast-primary-header-bar {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--ast-border-color);
+  background-color: #21073F;
+  background-image: none;
+  display: block;
+}
+
+.main-header-bar {
+  background-color: #21073F;
+  border-bottom-color: var(--ast-border-color);
+  border-bottom-style: solid;
+}
+
+#masthead .ast-primary-header-bar.main-header-bar {
+  background-color: #21073F;
+  border-bottom-color: var(--ast-border-color);
+  border-bottom-style: solid;
+}
+
+#masthead .main-header-bar {
+  background-color: #21073F !important;
+  border-bottom-color: var(--ast-border-color);
+  border-bottom-style: solid;
+}
+
+#masthead .main-header-bar-wrap,
+.ast-main-header-wrap .ast-primary-header-bar,
+.site-primary-header-wrap {
+  background-color: #21073F;
+  background-image: none;
+}
+
+.main-header-menu .menu-item > .menu-link {
+  color: #ffffff;
+}
+
+@media (max-width: 921px) {
+  .ast-mobile-header-wrap .ast-primary-header-bar,
+  .ast-primary-header-bar .site-primary-header-wrap {
+    min-height: 70px;
+  }
+
+  .ast-desktop .ast-primary-header-bar.main-header-bar,
+  .ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 544px) {
+  .ast-desktop .ast-primary-header-bar.main-header-bar,
+  .ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+[data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-outline {
+  background: transparent;
+  color: #fedb10;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fedb10;
+}
+
+[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg {
+  width: 14px;
+  height: 14px;
+  fill: #fedb10;
+}
+
+.ast-builder-social-element {
+  line-height: 1;
+  background: transparent;
+  vertical-align: middle;
+  transition: all 0.01s;
+  margin-left: 6px;
+  margin-right: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ast-header-social-wrap .ast-builder-social-element:first-child {
+  margin-left: 0;
+}
+
+.ast-header-social-wrap .ast-builder-social-element:last-child {
+  margin-right: 0;
+}
+
+.ast-header-social-wrap .ast-builder-social-element svg {
+  width: 27px;
+  height: 27px;
+  color: #ffffff;
+  fill: #ffffff !important;
+}
+
+.ast-header-social-wrap .ast-builder-social-element svg path {
+  fill: #ffffff !important;
+}

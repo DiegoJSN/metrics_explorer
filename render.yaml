@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: researcher-tool-demo
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz/
+    envVars:
+      - key: DEMO_MODE
+        value: "true"
+      - key: ENV
+        value: development
+      - key: DEBUG
+        value: "false"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com,localhost,127.0.0.1"

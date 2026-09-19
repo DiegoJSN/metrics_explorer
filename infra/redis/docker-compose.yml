@@ -1,0 +1,187 @@
+# docker-compose.yml (producción “realista” con Django dentro de Docker) (producción con Caddy + Nginx interno + Django + Postgres + Redis)
+# Ubicación: la misma carpeta donde ya tienes tu docker-compose.yml actual.
+
+services:
+  # ------------------------------------------------------------
+  # Base de datos (PostgreSQL)
+  # ------------------------------------------------------------
+  db:
+    image: postgres:16
+    env_file: # lee credenciales directamente desde .env.txt (asi te ahorras poner la contraseña en este archivo (ver "Alternativa"))
+      - .env.txt
+    # Alternativa: en vez de poner "env_file: - .env.txt" (que es lo recomendado), otra alternativa seria poner lo siguiente (es decir, hardcodear lo siguiente):
+    # environment: # (Mantén estos 3 valores alineados con tu .env.txt (PG_DB/PG_USER/PG_PASSWORD))
+      # POSTGRES_DB: authorsite
+      # POSTGRES_USER: authorsite
+      # POSTGRES_PASSWORD: authorsite_dev_password
+
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      # Crea la BD authors_data la primera vez que se inicializa el volumen:
+    restart: unless-stopped
+    healthcheck:
+      # Ojo: esto comprueba que Postgres acepta conexiones (DB "postgres" siempre existe)
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    # En producción normalmente NO expones Postgres al host.
+    # Si quieres depurar en local desde tu PC (pgAdmin, DBeaver), descomenta:
+    ports:
+      - "127.0.0.1:5433:5432"
+
+ # ------------------------------------------------------------
+  # Init DB (idempotente): crea POSTGRES_DB si no existe
+  # ------------------------------------------------------------
+  db-init:
+    image: postgres:16
+    env_file:
+      - .env.txt
+    environment:
+      - OPENALEX_MAILTO=info@metricsschool.com
+      - HTTP_UA=authorsite/1.0 (+mailto:info@metricsschool.com)
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+    command:
+      - bash
+      - -lc
+      - |
+          set -e
+
+          echo "[db-init] Ensuring database exists: $${POSTGRES_DB}"
+
+          # Si no existe la base, la crea y le pone owner POSTGRES_USER
+          if ! PGPASSWORD="$${POSTGRES_PASSWORD}" psql -h db -U "$${POSTGRES_USER}" -d postgres -tAc \
+            "SELECT 1 FROM pg_database WHERE datname='$${POSTGRES_DB}'" | grep -q 1; then
+
+            echo "[db-init] Creating database: $${POSTGRES_DB}"
+            PGPASSWORD="$${POSTGRES_PASSWORD}" psql -h db -U "$${POSTGRES_USER}" -d postgres -v ON_ERROR_STOP=1 -c \
+              "CREATE DATABASE \"$${POSTGRES_DB}\" OWNER \"$${POSTGRES_USER}\";"
+          else
+            echo "[db-init] Database already exists: $${POSTGRES_DB}"
+          fi
+
+  # ------------------------------------------------------------
+  # Broker (Redis) para Celery
+  # ------------------------------------------------------------
+  redis:
+    image: redis:7
+    volumes:
+      - redis-data:/data
+    command: ["redis-server","--appendonly","yes"]
+    restart: unless-stopped
+    # En producción normalmente NO expones Redis al host.
+    # Si quieres depurar en local, descomenta:
+    # ports:
+    #   - "6379:6379"
+
+  # ------------------------------------------------------------
+  # Django (web) - dentro de Docker, servido con Gunicorn
+  # ------------------------------------------------------------
+  web:
+    build:
+      context: ../../  # Carpeta donde esta tu Dockerfile
+      dockerfile: Dockerfile
+    # PRODUCCIÓN: no uses runserver. Gunicorn es el servidor de aplicación.
+    command: gunicorn authorsite.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 120
+    expose:
+      - "8000"   # solo para red interna de Docker; Nginx será la puerta de entrada
+    depends_on:
+      db-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_started
+    env_file:
+      - .env.txt
+    environment:
+      - OPENALEX_MAILTO=info@metricsschool.com
+      - HTTP_UA=authorsite/1.0 (+mailto:info@metricsschool.com)
+      - PGAPPNAME=web
+    restart: unless-stopped
+    # Monta los volúmenes de estáticos y media para compartirlos con Nginx.
+    volumes:
+      - static-data:/app/staticfiles
+      - media-data:/app/media
+
+
+  # ------------------------------------------------------------
+  # Celery worker - también dentro de Docker (proceso separado)
+  # ------------------------------------------------------------
+  worker:
+    build:
+      context: ../../
+      dockerfile: Dockerfile
+    command: celery -A authorsite worker -l info --concurrency 10
+    depends_on:
+      db-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_started
+    env_file:
+      - .env.txt
+    environment:
+      - OPENALEX_MAILTO=info@metricsschool.com
+      - HTTP_UA=authorsite/1.0 (+mailto:info@metricsschool.com)
+      - PGAPPNAME=worker
+    restart: unless-stopped
+    volumes:
+      - media-data:/app/media
+
+  # ------------------------------------------------------------
+  # Nginx interno (sin puertos públicos)
+  # ------------------------------------------------------------
+  nginx:
+    image: nginx:stable-alpine
+    expose:
+      - "80"
+    depends_on:
+      - web
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "7"
+    volumes:
+      # Crea esta ruta y este archivo (lo encontrarás en ./nginx/default.conf)
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      # Comparte directorios de estáticos y media entre Django y Nginx
+      - static-data:/staticfiles:ro
+      - media-data:/media:ro
+    restart: unless-stopped
+
+ # ------------------------------------------------------------
+  # Caddy (puerta pública HTTP/HTTPS)
+  # ------------------------------------------------------------
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "7"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - nginx
+
+
+
+
+
+volumes:
+  redis-data:
+  postgres-data:
+  # Volúmenes persistentes para archivos estáticos y de medios
+  static-data:
+  media-data:
+  caddy_data:
+  caddy_config:

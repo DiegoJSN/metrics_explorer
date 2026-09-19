@@ -1,0 +1,9 @@
+# Opcion 1: entras con http://127.0.0.1/es/
+
+{
+ auto_https off
+}
+
+:80 {
+ reverse_proxy web:8000
+}
